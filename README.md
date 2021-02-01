@@ -15,5 +15,5 @@ Course website is hosted at [this link](https://lf2l.github.io/ensgsi-research-m
 
 **Students** if you see anything missing or broken links please feel free to file an issue in this repo or let me know. 
 Note that this is a public repo so if you create an issue it would be publicly be available. 
-If you are concerned about privacy you can directly email me.
+If you are concerned about privacy you can directly email me.ccc
 
