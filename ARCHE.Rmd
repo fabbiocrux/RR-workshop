@@ -1,9 +1,9 @@
 ---
 title: "Rendu ARCHE"
-author:
-- name: "Name of the Student"
-  affiliation: Université de Lorraine
+author: "Name of the Student"
 output: pdf_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -179,6 +179,40 @@ babynames %>%
 ```
 
 
-# Challenge
+# Challenge Gapminder
+
+- Inspiré par [Hans Rosling](https://www.youtube.com/watch?v=jbkSRLYSojo)
+
+Regardez la documentation de [`gapminder` data package](https://github.com/jennybc/gapminder)
+
+```{r data}
+# Code pour Lire la base de donnes 'Gapminder'
+gapminder <- read_csv2("data/gapminder.csv")
+
+gapminder <- knitr::kable(head(gapminder, 10)) # knitr::kable is a function to plot beautiful tables in pdf
+
+
+gapminder 
+```
+
+Choissisez au moins **Deux** taches ci-dessous en presentant un tableau ou bien une graphique 
+
+  * `dplyr` devrait être votre principal outil de manipulation des données
+  * `ggplot2` doit être votre principal outil de visualisation
+
+## Tasks menu {-}
+
+* L'espérance de vie moyenne sur l'ensemble des années pour la France ?
+
+* Obtenir le maximum et le minimum du PIB par habitant pour tous les continents. (Fait un tableu)
+
+
+* Regardez la répartition du PIB par habitant entre les pays au sein des continents.
+
+
+
+* Comment l'espérance de vie varie-t-elle entre les différents continents ? (En utilisant `ggplot`)
+
+* Proposez une analyse! 
 
 
