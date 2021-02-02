@@ -12,6 +12,8 @@ output: html_document
 knitr::opts_chunk$set(error = TRUE, comment = NA, warning = FALSE, errors = FALSE, message = FALSE, tidy = FALSE, cache = FALSE)
 library(tidyverse)
 library(gapminder)
+library(babynames)
+
 ```
 
 
