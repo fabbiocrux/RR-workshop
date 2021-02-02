@@ -1,19 +1,18 @@
 ---
-title: 'Reproducible research Workshop: <Master IDEAS/ IUVTT / 3A1>'
+title: 'Guide of Rmarkdown'
 author:
-- name: John, the Problem Solver
+- name: the Problem Solver
   affiliation: Université de Lorraine
 date: "`r Sys.Date()`"
 output: html_document
 ---
 
 ```{r setup, include = FALSE, cache = FALSE}
-devtools::install_github( "ThinkR-open/prenoms")
-library(tidyverse)
-library(prenoms)
+# Setup
 knitr::opts_chunk$set(error = TRUE, comment = NA, warning = FALSE, errors = FALSE, message = FALSE, tidy = FALSE, cache = FALSE)
-```
+library("tidyverse")
 
+```
 
 
 This is an R Markdown file. It contains plain text interspersed with grey chunks of code. You can use the file to take notes _and_ run code. For example, you can write your name on the line below. Try it: 
@@ -30,7 +29,6 @@ plot(cars)
 
 Good job! The results of a code chunk will appear beneath the chunk. You can click the x above the results to make them go away, but let's not do that.
 
-You can open a new R Markdown file by going to **File > New File > R Markdown...**. Then click OK. But let's not open a new file now—keep reading this one! 
 
 # Adding chunks
 

@@ -1,0 +1,184 @@
+---
+title: "Rendu ARCHE"
+author:
+- name: "Name of the Student"
+  affiliation: Université de Lorraine
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, include= TRUE)
+library(tidyverse)
+library(babynames)
+```
+
+
+# Elements théoriques 
+
+## R
+
+1. Comment créer un vector sous R? 
+
+> Votre réponse ici
+
+```{r vector, echo=TRUE}
+# Mets ici un example
+```
+
+
+2. Quelle est la fonction des crochets `[]`?
+
+> Votre réponse
+
+
+## ggplot
+
+1 Quels sont les trois fonction essentielles pour créer un grafique en  `ggplot2`?
+
+>  1. Votre réponse
+>  2. Votre réponse
+>  3. Votre réponse
+
+1. Qu'est ce que c'est un `geom_` en `ggplot` ?
+
+> Votre réponse
+
+1. Quel `geom_` utiliseriez-vous pour représenter un nuage de points ? Une boîte à moustaches ?
+
+>Votre réponse
+
+
+```{r}
+# Une exemple de boîte à moustache donnes `mpg`
+```
+
+
+1. Quels sont les composant éléménts qu'un graphics a besoin en `ggplot`?
+
+```{r}
+# Votre réponse
+```
+
+
+1. Faites un nuage de points de `cty` vs `hwy` de jeu de donnes `mpg`?
+
+```{r}
+# ggplot(data = <DATA>) + 
+#   aes(x = <X>, y = <Y>)
+#  <GEOM_FUNCTION>()
+```
+
+
+1. Dans le jeu de donnés `mpg`, calculez graphiques, ajoutez 
+
+```{r}
+#ggplot(data = mpg) + 
+#  aes(x = ___, y = ____, alpha = drv) +
+#  geom_point()
+```
+
+
+
+
+## Tidyverse
+
+### Tibble
+
+1. Qu’est-ce qu’un `tibble` par rapport au format `data.frame` et quel est la principale avantage de ce format ?
+
+> # Votre réponse
+
+
+1.  Expliquez avec les fonctions suivantes:
+ 
+* `select()` and `filter()`: ____
+* `arrange()`: ___
+* `%>%`: ____
+* `mutate()`, `group_by()`, and `summarize()`: ____
+
+
+```{r}
+# Votre réponse
+```
+ 
+
+1. Quels sont les `helpers` de la fonctionne `select()`?
+
+> Votre réponse
+
+
+
+1 Pouvez-vous écrire le code pour filtrer le prénom 'Zack', et savoir combien de fois dans le jeu de donnes `babynames`?
+
+> Votre réponse
+
+```{r}
+babynames %>% filter(name == 'Zack') %>% summarise(t = max(n))
+```
+
+
+1. Expliquez à quoi ça sert l'operateur `>=`?
+
+> Votre réponse
+
+
+1. Quels sont les quatre erreurs les plus courants avec la fonction `filter`?
+
+> Votre réponse
+
+
+1. Expliquez l'erreur dans le code `filter(babynames, 10 < n < 20)`?
+
+> Votre réponse
+
+Si je veux le faire, comment il faut le faire?
+
+```{r}
+# babynames %>% filter( _______ )
+```
+
+1. Expliquez l'interet de l'opérateur **Pipe** `%>%`?
+
+> Votre réponse
+
+```{r}
+# Un exemple
+```
+
+1. Quels sont les prenoms le plus populaires (masculin et feminine) l'année 2000 selonles donnés `babynames`?
+
+```{r}
+# Ici votre code
+# babynames %>% ...
+```
+
+1. Grafiquez la popularité de prenom `James`.
+
+```{r}
+# babynames %>% ...
+```
+
+1. Listes les types de *fonctions de résumés* courantes dans statistique descriptive?
+
+> 1. 
+> 2.
+
+
+1. Quel est l'objectif de ce partie du code?. Expliquez
+
+```r
+babynames %>%
+  group_by(year, sex) %>% 
+  summarise(total = sum(n))
+```
+> # Votre réponse
+
+1. Peut-on grafiquer la curve de total des persones differencié par sex depuis 1880?
+```{r}
+# Code ici
+```
+
+
+# Challenge
+
+
