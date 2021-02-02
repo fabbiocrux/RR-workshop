@@ -69,16 +69,13 @@ library(babynames)
 ```
 
 
-1. Dans le jeu de donnés `mpg`, calculez graphiques, ajoutez 
+1. Dans le jeu de donnés `mpg`, graphiquez les nuage de points `cty` vs `hwy`, en en prenant le facteur `drv` comme un variable de differentiation par la couleur.
 
 ```{r}
 #ggplot(data = mpg) + 
-#  aes(x = ___, y = ____, alpha = drv) +
+#  aes(x = ___, y = ____, ____ ) +
 #  geom_point()
 ```
-
-
-
 
 ## Tidyverse
 
@@ -113,7 +110,8 @@ library(babynames)
 > Votre réponse
 
 ```{r}
-babynames %>% filter(name == 'Zack') %>% summarise(t = max(n))
+
+
 ```
 
 
