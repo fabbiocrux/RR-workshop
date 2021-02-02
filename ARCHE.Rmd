@@ -73,7 +73,7 @@ library(babynames)
 
 ```{r}
 #ggplot(data = mpg) + 
-#  aes(x = ___, y = ____, ____ ) +
+#  aes(x = ___, y = ____, __ = ____ ) +
 #  geom_point()
 ```
 
@@ -86,7 +86,7 @@ library(babynames)
 > # Votre réponse
 
 
-1.  Expliquez avec les fonctions suivantes:
+1.  Expliquez les fonctions suivantes:
  
 * `select()` and `filter()`: ____
 * `arrange()`: ___
@@ -105,12 +105,13 @@ library(babynames)
 
 
 
-1 Pouvez-vous écrire le code pour filtrer le prénom 'Zack', et savoir combien de fois dans le jeu de donnes `babynames`?
+1 Pouvez-vous écrire le code pour filtrer le prénom 'Zack', et savoir combien de fois dans il a été donné le jeu de donnes `babynames`?
 
 > Votre réponse
 
 ```{r}
 
+babynames %>% filter(name == 'James') %>% select(year, n)
 
 ```
 
@@ -143,11 +144,14 @@ Si je veux le faire, comment il faut le faire?
 # Un exemple
 ```
 
-1. Quels sont les prenoms le plus populaires (masculin et feminine) l'année 2000 selonles donnés `babynames`?
+1. Quels sont les prenoms le plus populaires (masculin et feminine) l'année 2000 selon les donnés `babynames`?
 
 ```{r}
+sex == "F" | sex == "M"
 # Ici votre code
-# babynames %>% ...
+ babynames %>%
+  filter(year == 2000, sex == 'F') %>% 
+  slice(desc(n))
 ```
 
 1. Grafiquez la popularité de prenom `James`.
@@ -187,10 +191,10 @@ Regardez la documentation de [`gapminder` data package](https://github.com/jenny
 # Code pour Lire la base de donnes 'Gapminder'
 gapminder <- read_csv2("data/gapminder.csv")
 
-gapminder <- knitr::kable(head(gapminder, 10)) # knitr::kable is a function to plot beautiful tables in pdf
+#table <- knitr::kable(head(gapminder, 10)) # knitr::kable is a function to plot beautiful tables in pdf
+#table 
+gapminder
 
-
-gapminder 
 ```
 
 Choissisez au moins **Deux** taches ci-dessous en presentant un tableau ou bien une graphique 
@@ -204,9 +208,7 @@ Choissisez au moins **Deux** taches ci-dessous en presentant un tableau ou bien 
 
 * Obtenir le maximum et le minimum du PIB par habitant pour tous les continents. (Fait un tableu)
 
-
 * Regardez la répartition du PIB par habitant entre les pays au sein des continents.
-
 
 
 * Comment l'espérance de vie varie-t-elle entre les différents continents ? (En utilisant `ggplot`)
