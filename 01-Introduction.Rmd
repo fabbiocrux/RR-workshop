@@ -188,6 +188,7 @@ range(tailles)
 # Voir l'aide des fonctions
 ?length
 ?max
+help("mean")
 ```
 
 - `length`: est le nom de la fonction, on l'appelle en lui passant un argument entre parenthèses (en l'occurrence notre vecteur `tailles`), et elle nous renvoie un résultat, à savoir le nombre d'éléments du vecteur passé en paramètre.
@@ -244,34 +245,54 @@ tailles
 Si je calcule maintenant la taille moyenne à l'aide de la fonction `mean`, j'obtiens :
 
 ```{r}
+# Il considère alors que cette moyenne est elle-même "non disponible" et renvoie donc comme résultat `NA`.
 mean(tailles)
-```
 
-En effet, R considère par défaut qu'il ne peut pas calculer la moyenne si une des valeurs n'est pas disponible. Il considère alors que cette moyenne est elle-même "non disponible" et renvoie donc comme résultat `NA`.
+# Ceci se fait en ajoutant un argument supplémentaire, nommé `na.rm` (abbréviation de *NA remove*, "enlever les NA"), et de lui attribuer la valeur `TRUE` (code interne de R signifiant *vrai*) :
 
-On peut cependant indiquer à `mean` d'effectuer le calcul en ignorant les valeurs manquantes. Ceci se fait en ajoutant un argument supplémentaire, nommé `na.rm` (abbréviation de *NA remove*, "enlever les NA"), et de lui attribuer la valeur `TRUE` (code interne de R signifiant *vrai*) :
-
-```{r}
 mean(tailles, na.rm = TRUE)
 ```
 
-Positionner le paramètre `na.rm` à `TRUE`  indique à la fonction `mean` de ne pas tenir compte des valeurs manquantes dans le calcul.
-
-Si on ne dit rien à la fonction `mean`, cet argument a une valeur par défaut, en l'occurrence `FALSE` (faux), qui fait qu'il ne supprime pas les valeurs manquantes. Les deux commandes suivantes sont donc rigoureusement équivalentes :
-
-```{r}
-mean(tailles)
-mean(tailles, na.rm = FALSE)
-```
 
 ```{block, type='rmdnote'}
 Lorsqu'on passe un argument à une fonction de cette manière, c'est-à-dire sous la forme `nom = valeur`, on parle d'*argument nommé*.
 ```
 
 
+## Packages
+
+R étant un logiciel libre, il bénéficie d’un développement communautaire riche et dynamique. 
+
+L’installation de base de R permet de faire énormément de choses, mais le langage dispose en plus d’un système d’extensions permettant d’ajouter facilement de nouvelles fonctionnalités. La plupart des extensions sont développées et maintenues par la communauté des utilisateurs de R, et diffusées via un réseau de serveurs nommé CRAN (Comprehensive R Archive Network).
+
+```{r}
+# Options 1
+install.packages("questionr")
+install.packages("tidyverse")
+
+# Option 2 --> Paneau
+
+```
 
 
-## Data Frames
+il faut la “charger” avant de pouvoir utiliser les fonctions qu’elle propose. 
+Ceci se fait avec la fonction `library`.
+
+
+```{r}
+library(questionr)
+library(tidyverse)
+```
+
+
+
+Prenons une Pause de 10 min !!!
+
+
+
+
+
+# Data Frames
 
 ```{r, echo=TRUE, message=FALSE, eval=TRUE}
 df<-data.frame(subject=as.factor(c("Pierre","Anne","Joyce","Peter","Alan","Camille")), age=as.numeric(c(20, 16, 19, 99, 23, 18)), sex=as.factor(c("M","F","F","M",NA,"F")), height=as.numeric(c(172, 181, 165, 168, 177, 178)), speed=as.numeric(c(11.20,3.00,11.50,10.35,10.98,13.05)))
