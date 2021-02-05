@@ -168,8 +168,8 @@ summary {
 
 <div id="prise-en-main" class="section level1">
 <h1>Prise en Main</h1>
-<div id="comme-un-calculatrice" class="section level2">
-<h2>Comme un calculatrice:</h2>
+<div id="comme-une-calculatrice" class="section level2">
+<h2>Comme une calculatrice:</h2>
 <ul>
 <li>Vous voyez l’opérateur d’assignation <code>&lt;-</code> :</li>
 </ul>
@@ -177,7 +177,9 @@ summary {
 b &lt;- 5-7
 c &lt;- 4*12
 d &lt;- 10/3
-e &lt;- 5^2</code></pre>
+e &lt;- 5^2
+
+Resultat &lt;- a + b + c +d +e</code></pre>
 <pre class="r"><code>a</code></pre>
 <pre><code>## [1] 4</code></pre>
 <pre class="r"><code>b</code></pre>
@@ -188,18 +190,48 @@ e &lt;- 5^2</code></pre>
 <pre><code>## [1] 3.333333</code></pre>
 <pre class="r"><code>e</code></pre>
 <pre><code>## [1] 25</code></pre>
+<p>Le résultat est 78.3333333</p>
 <div class="infobox">
+<ul>
+<li>
 <p>
-Les noms d’objets peuvent contenir des lettres, des chiffres, les symboles <code>.</code> et <code>_</code>. Ils ne peuvent pas commencer par un chiffre. Attention, R fait la différence entre minuscules et majuscules dans les noms d’objets, ce qui signifie que <code>x</code> et <code>X</code> seront deux objets différents, tout comme <code>resultat</code> et <code>Resultat</code>. De manière générale, il est préférable d’éviter les majuscules (pour les risques d’erreur) et les caractères accentués (pour des questions d’encodage) dans les noms d’objets. De même, il faut essayer de trouver un équilibre entre clarté du nom (comprendre à quoi sert l’objet, ce qu’il contient) et sa longueur. Par exemple, on préfèrera comme nom d’objet <code>taille_conj1</code> à <code>taille_du_conjoint_numero_1</code> (trop long) ou à <code>t1</code> (pas assez explicite).
+Les noms d’objets peuvent contenir des lettres, des chiffres, les symboles <code>.</code> et <code>_</code>.
 </p>
+</li>
+<li>
+<p>
+Ils ne peuvent pas commencer par un chiffre.
+</p>
+</li>
+<li>
+<p>
+R fait la différence entre minuscules et majuscules dans les noms d’objets, ce qui signifie que <code>x</code> et <code>X</code> seront deux objets différents, tout comme <code>resultat</code> et <code>Resultat</code>.
+</p>
+</li>
+</ul>
+<p>
+Conseils:
+</p>
+<ul>
+<li>
+<p>
+Il est préférable d’éviter les majuscules (pour les risques d’erreur) et les caractères accentués (pour des questions d’encodage) dans les noms d’objets.
+</p>
+</li>
+<li>
+<p>
+De même, il faut essayer de trouver un équilibre entre clarté du nom (comprendre à quoi sert l’objet, ce qu’il contient) et sa longueur. Par exemple, on préfèrera comme nom d’objet <code>taille_conj1</code> à <code>taille_du_conjoint_numero_1</code> (trop long) ou à <code>t1</code> (pas assez explicite).
+</p>
+</li>
+</ul>
 </div>
-<pre class="r"><code>Resultat &lt;- a + b</code></pre>
 </div>
 <div id="objets-simples" class="section level2">
 <h2>Objets simples</h2>
 <p>Types d’objets:</p>
 <ul>
 <li>Texte</li>
+<li>Facteurs</li>
 </ul>
 <div id="vecteurs" class="section level3">
 <h3>Vecteurs</h3>
@@ -212,9 +244,20 @@ taille4 &lt;- 147
 taille5 &lt;- 173
 (taille1 + taille2 + taille3 + taille4 + taille5) / 5</code></pre>
 <pre><code>## [1] 167.4</code></pre>
+<p>Cette manière de faire n’est évidemment pas pratique du tout. On va plutôt stocker l’ensemble de nos tailles dans un seul objet, de type <em>vecteur</em>, avec la syntaxe suivante :</p>
+<pre class="r"><code>tailles &lt;- c(156, 164, 197, 147, 173)</code></pre>
+<p>Si on affiche le contenu de cet objet, on voit qu’il contient bien l’ensemble des tailles saisies :</p>
+<pre class="r"><code>tailles</code></pre>
+<pre><code>## [1] 156 164 197 147 173</code></pre>
+<p>Un <em>vecteur</em> dans R est un objet qui peut contenir plusieurs informations du même type, potentiellement en très grand nombre.</p>
+<p>L’avantage d’un vecteur est que lorsqu’on lui applique une opération, celle-ci s’applique à toutes les valeurs qu’il contient. Ainsi, si on veut la taille en mètres plutôt qu’en centimètres, on peut faire :</p>
+<pre class="r"><code>tailles_m &lt;- tailles / 100
+tailles_m</code></pre>
+<pre><code>## [1] 1.56 1.64 1.97 1.47 1.73</code></pre>
 </div>
-<div id="create-a-small-dataset" class="section level3">
-<h3>Create a small dataset</h3>
+</div>
+<div id="data-frames" class="section level2">
+<h2>Data Frames</h2>
 <pre class="r"><code>df&lt;-data.frame(subject=as.factor(c(&quot;Pierre&quot;,&quot;Anne&quot;,&quot;Joyce&quot;,&quot;Peter&quot;,&quot;Alan&quot;,&quot;Camille&quot;)), age=as.numeric(c(20, 16, 19, 99, 23, 18)), sex=as.factor(c(&quot;M&quot;,&quot;F&quot;,&quot;F&quot;,&quot;M&quot;,NA,&quot;F&quot;)), height=as.numeric(c(172, 181, 165, 168, 177, 178)), speed=as.numeric(c(11.20,3.00,11.50,10.35,10.98,13.05)))</code></pre>
 <p>Check the data.frame df by simply typing in:</p>
 <pre class="r"><code>df</code></pre>
@@ -252,7 +295,6 @@ taille5 &lt;- 173
 ##  Joyce  :1   Mean   :32.50            Mean   :173.5   Mean   :10.01  
 ##  Peter  :1   3rd Qu.:22.25            3rd Qu.:177.8   3rd Qu.:11.43  
 ##  Pierre :1   Max.   :99.00            Max.   :181.0   Max.   :13.05</code></pre>
-</div>
 <div id="missing-values" class="section level3">
 <h3>Missing values</h3>
 <p>To examine if missing values (NA) are in the data:</p>
