@@ -12,12 +12,13 @@ library(tidyverse)
 library(babynames)
 ```
 
+# Sprint 1
 
-# Elements théoriques 
+Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.cloud/learn/primers/1.2). Timming 20Min.
 
-## R
+## Prise en main
 
-1. Comment créer un vector sous R? 
+* Comment créer un vector sous R? 
 
 > Votre réponse ici
 
@@ -26,9 +27,46 @@ library(babynames)
 ```
 
 
-2. Quelle est la fonction des crochets `[]`?
+1. Quelle est la fonction des crochets `[]`?
 
-> Votre réponse
+> Ecrire votre réponse ici
+
+
+1. On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de personnes du ménage :
+
+```{r eval=FALSE}
+conjoint1 <- c(1200, 1180, 1750, 2100)
+conjoint2 <- c(1450, 1870, 1690, 0)
+nb_personnes <- c(4, 2, 3, 2)
+```
+
+  - Calculer le revenu total de chaque ménage, puis diviser par le nombre de personnes pour obtenir le revenu par personne de chaque ménage.
+
+  - Calculer le revenu minimum et maximum parmi ceux du premier conjoint. 
+
+```{r eval=FALSE}
+conjoint1 <- c(1200, 1180, 1750, 2100)
+```
+
+
+
+1. **Exercice 5**
+
+On a relevé les notes en maths, anglais et sport d'une classe de 6 élèves et on a stocké ces données dans trois vecteurs :
+
+```{r}
+maths <- c(12, 16, 8, 18, 6, 10)
+anglais <- c(14, 9, 13, 15, 17, 11)
+sport <- c(18, 11, 14, 10, 8, 12)
+```
+
+Calculer la moyenne des élèves de la classe en anglais.
+
+Calculer la moyenne générale de chaque élève.
+ 
+
+
+
 
 
 ## ggplot
@@ -147,7 +185,6 @@ Si je veux le faire, comment il faut le faire?
 1. Quels sont les prenoms le plus populaires (masculin et feminine) l'année 2000 selon les donnés `babynames`?
 
 ```{r}
-sex == "F" | sex == "M"
 # Ici votre code
  babynames %>%
   filter(year == 2000, sex == 'F') %>% 

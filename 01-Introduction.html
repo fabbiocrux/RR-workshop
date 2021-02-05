@@ -178,19 +178,10 @@ b &lt;- 5-7
 c &lt;- 4*12
 d &lt;- 10/3
 e &lt;- 5^2
+Resultat &lt;- a + b + c +d +e
 
-Resultat &lt;- a + b + c +d +e</code></pre>
-<pre class="r"><code>a</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>b</code></pre>
-<pre><code>## [1] -2</code></pre>
-<pre class="r"><code>c</code></pre>
-<pre><code>## [1] 48</code></pre>
-<pre class="r"><code>d</code></pre>
-<pre><code>## [1] 3.333333</code></pre>
-<pre class="r"><code>e</code></pre>
-<pre><code>## [1] 25</code></pre>
-<p>Le résultat est 78.3333333</p>
+Text &lt;- &quot;Hello students, the result is &quot;</code></pre>
+<p>Rmarkdown permet combiner text et code: Hello students, the result is 78.3333333</p>
 <div class="infobox">
 <ul>
 <li>
@@ -225,14 +216,6 @@ De même, il faut essayer de trouver un équilibre entre clarté du nom (compren
 </li>
 </ul>
 </div>
-</div>
-<div id="objets-simples" class="section level2">
-<h2>Objets simples</h2>
-<p>Types d’objets:</p>
-<ul>
-<li>Texte</li>
-<li>Facteurs</li>
-</ul>
 <div id="vecteurs" class="section level3">
 <h3>Vecteurs</h3>
 <p>Imaginons maintenant qu’on a demandé la taille en centimètres de 5 personnes et qu’on souhaite calculer leur taille moyenne.</p>
@@ -244,16 +227,148 @@ taille4 &lt;- 147
 taille5 &lt;- 173
 (taille1 + taille2 + taille3 + taille4 + taille5) / 5</code></pre>
 <pre><code>## [1] 167.4</code></pre>
-<p>Cette manière de faire n’est évidemment pas pratique du tout. On va plutôt stocker l’ensemble de nos tailles dans un seul objet, de type <em>vecteur</em>, avec la syntaxe suivante :</p>
-<pre class="r"><code>tailles &lt;- c(156, 164, 197, 147, 173)</code></pre>
-<p>Si on affiche le contenu de cet objet, on voit qu’il contient bien l’ensemble des tailles saisies :</p>
-<pre class="r"><code>tailles</code></pre>
+<p>Cette manière de faire n’est évidemment pas pratique du tout. On va plutôt stocker l’ensemble de nos tailles dans un seul objet, de type <em>vecteur</em>, avec la syntaxe suivante:</p>
+<pre class="r"><code>tailles &lt;- c(156, 164, 197, 147, 173)
+tailles</code></pre>
 <pre><code>## [1] 156 164 197 147 173</code></pre>
-<p>Un <em>vecteur</em> dans R est un objet qui peut contenir plusieurs informations du même type, potentiellement en très grand nombre.</p>
-<p>L’avantage d’un vecteur est que lorsqu’on lui applique une opération, celle-ci s’applique à toutes les valeurs qu’il contient. Ainsi, si on veut la taille en mètres plutôt qu’en centimètres, on peut faire :</p>
-<pre class="r"><code>tailles_m &lt;- tailles / 100
+<pre class="r"><code># Taille en metres
+tailles_m &lt;- tailles / 100
 tailles_m</code></pre>
 <pre><code>## [1] 1.56 1.64 1.97 1.47 1.73</code></pre>
+<pre class="r"><code>#Cela fonctionne pour toutes les opérations de base :
+
+tailles + 10</code></pre>
+<pre><code>## [1] 166 174 207 157 183</code></pre>
+<pre class="r"><code>tailles^2</code></pre>
+<pre><code>## [1] 24336 26896 38809 21609 29929</code></pre>
+<p>L’avantage d’un vecteur est que lorsqu’on lui applique une opération, celle-ci s’applique à toutes les valeurs qu’il contient.</p>
+<p>Imaginons maintenant qu’on a aussi demandé aux cinq mêmes personnes leur poids en kilos. On peut alors créer un deuxième vecteur :</p>
+<pre class="r"><code>poids &lt;- c(45, 59, 110, 44, 88)</code></pre>
+<p>On peut alors effectuer des calculs utilisant nos deux vecteurs <code>tailles</code> et <code>poids</code>.</p>
+<p>On peut par exemple calculer l’indice de masse corporelle (IMC) de chacun de nos enquêtés en divisant leur poids en kilo par leur taille en mètre au carré :</p>
+<pre class="r"><code># option 1
+imc &lt;- poids / (tailles / 100) ^ 2
+imc</code></pre>
+<pre><code>## [1] 18.49112 21.93635 28.34394 20.36189 29.40292</code></pre>
+<pre class="r"><code># option 2
+imc &lt;- poids / (tailles_m) ^ 2
+imc</code></pre>
+<pre><code>## [1] 18.49112 21.93635 28.34394 20.36189 29.40292</code></pre>
+<p>Un vecteur peut contenir des nombres, mais il peut aussi contenir du texte.</p>
+<p>Imaginons qu’on a demandé aux 5 mêmes personnes leur niveau de diplôme : on peut regrouper l’information dans un vecteur de <em>chaînes de caractères</em>. Une chaîne de caractère contient du texte libre, délimité par des guillemets simples ou doubles :</p>
+<pre class="r"><code>diplome &lt;- c(&quot;CAP&quot;, &quot;Bac&quot;, &quot;Bac+2&quot;, &quot;CAP&quot;, &quot;Bac+3&quot;)
+diplome</code></pre>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac&quot;   &quot;Bac+2&quot; &quot;CAP&quot;   &quot;Bac+3&quot;</code></pre>
+</div>
+<div id="opérateur" class="section level3">
+<h3>Opérateur <code>[]</code></h3>
+<p>L’opérateur <code>[]</code>, permet donc la sélection d’éléments d’un vecteur. On peut accéder à un élément particulier d’un vecteur en faisant suivre le nom du vecteur de crochets contenant le numéro de l’élément désiré. Par exemple :</p>
+<pre class="r"><code>diplome[1]</code></pre>
+<pre><code>## [1] &quot;CAP&quot;</code></pre>
+<pre class="r"><code>diplome[2]</code></pre>
+<pre><code>## [1] &quot;Bac&quot;</code></pre>
+<pre class="r"><code>#diplome[c(1,2,3)]</code></pre>
+</div>
+<div id="lopérateur" class="section level3">
+<h3>L’opérateur <code>:</code></h3>
+<p>Il permet de générer rapidement un vecteur comprenant tous les nombres entre deux valeurs, opération assez courante sous R :</p>
+<pre class="r"><code>diplome[1:3]</code></pre>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac&quot;   &quot;Bac+2&quot;</code></pre>
+<pre class="r"><code># Vecteurs très longes
+x &lt;- 1:200
+x</code></pre>
+<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+## [163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
+## [181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
+## [199] 199 200</code></pre>
+<p>Des questions?…</p>
+</div>
+<div id="fonctions" class="section level3">
+<h3>Fonctions</h3>
+<ul>
+<li><p>Deuxième concept de base de R.</p></li>
+<li><p>On utilise des fonctions pour effectuer des calculs, obtenir des résultats et accomplir des actions.</p></li>
+<li><p>Une fonction a:</p>
+<ol style="list-style-type: decimal">
+<li>un <em>nom</em>,</li>
+<li>Elle prend en entrée entre parenthèses un ou plusieurs <em>arguments</em> (ou <em>paramètres</em>), 3.Retourne un <em>résultat</em>.</li>
+</ol></li>
+</ul>
+<p>Exemple: Si on veut connaître le nombre d’éléments du vecteur <code>tailles</code> que nous avons construit précédemment, on peut utiliser la fonction <code>length</code>, de cette manière :</p>
+<pre class="r"><code>length(tailles)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>min(tailles)</code></pre>
+<pre><code>## [1] 147</code></pre>
+<pre class="r"><code>max(tailles)</code></pre>
+<pre><code>## [1] 197</code></pre>
+<pre class="r"><code>sum(tailles)</code></pre>
+<pre><code>## [1] 837</code></pre>
+<pre class="r"><code>mean(tailles)</code></pre>
+<pre><code>## [1] 167.4</code></pre>
+<pre class="r"><code>range(tailles)</code></pre>
+<pre><code>## [1] 147 197</code></pre>
+<pre class="r"><code># Voir l&#39;aide des fonctions
+?length
+?max</code></pre>
+<ul>
+<li><p><code>length</code>: est le nom de la fonction, on l’appelle en lui passant un argument entre parenthèses (en l’occurrence notre vecteur <code>tailles</code>), et elle nous renvoie un résultat, à savoir le nombre d’éléments du vecteur passé en paramètre.</p></li>
+<li><p><code>min</code> et <code>max</code> retournent respectivement les valeurs minimales et maximales d’un vecteur de nombres.</p></li>
+<li><p><code>mean</code>: calcule et retourne la moyenne d’un vecteur de nombres :</p></li>
+<li><p><code>sum</code> retourne la somme de tous les éléments du vecteur :</p></li>
+<li><p><code>range</code> (étendue) renvoie un vecteur de deux nombres, le minimum et le maximum :</p></li>
+</ul>
+<pre class="r"><code>diplome &lt;- c(&quot;CAP&quot;, &quot;Bac&quot;, &quot;Bac+2&quot;, &quot;CAP&quot;, &quot;Bac+3&quot;)
+unique(diplome)</code></pre>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac&quot;   &quot;Bac+2&quot; &quot;Bac+3&quot;</code></pre>
+<pre class="r"><code>nchar(diplome)</code></pre>
+<pre><code>## [1] 3 3 5 3 5</code></pre>
+<ul>
+<li><code>unique</code>, qui supprime toutes les valeurs en double dans un vecteur, qu’il s’agisse de nombres ou de chaînes de caractères :</li>
+</ul>
+</div>
+<div id="arguments" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><p>Une fonction peut prendre plusieurs arguments, dans ce cas on les indique toujours entre parenthèses, séparés par des virgules.</p></li>
+<li><p>Un exemple de fonction acceptant plusieurs arguments : la fonction <code>c</code>, qui combine l’ensemble de ses arguments en un vecteur<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> :</p></li>
+</ul>
+<pre class="r"><code>tailles &lt;- c(156, 164, 197, 181, 173)</code></pre>
+<p>Ici, <code>c</code> est appelée en lui passant cinq arguments, les cinq tailles séparées par des virgules, et elle renvoie un vecteur numérique regroupant ces cinq valeurs.</p>
+<p>Supposons maintenant que dans notre vecteur <code>tailles</code> nous avons une valeur manquante (une personne a refusé de répondre, ou notre mètre mesureur était en panne). On symbolise celle-ci dans R avec le code interne <code>NA</code> :</p>
+<pre class="r"><code>tailles &lt;- c(156, 164, 197, NA, 173)
+tailles</code></pre>
+<pre><code>## [1] 156 164 197  NA 173</code></pre>
+<div class="infobox">
+<p>
+<code>NA</code> est l’abbréviation de <em>Not available</em>, non disponible. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante, qu’il s’agisse d’un nombre, d’une chaîne de caractères, etc.
+</p>
+</div>
+<p>Si je calcule maintenant la taille moyenne à l’aide de la fonction <code>mean</code>, j’obtiens :</p>
+<pre class="r"><code>mean(tailles)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>En effet, R considère par défaut qu’il ne peut pas calculer la moyenne si une des valeurs n’est pas disponible. Il considère alors que cette moyenne est elle-même “non disponible” et renvoie donc comme résultat <code>NA</code>.</p>
+<p>On peut cependant indiquer à <code>mean</code> d’effectuer le calcul en ignorant les valeurs manquantes. Ceci se fait en ajoutant un argument supplémentaire, nommé <code>na.rm</code> (abbréviation de <em>NA remove</em>, “enlever les NA”), et de lui attribuer la valeur <code>TRUE</code> (code interne de R signifiant <em>vrai</em>) :</p>
+<pre class="r"><code>mean(tailles, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 172.5</code></pre>
+<p>Positionner le paramètre <code>na.rm</code> à <code>TRUE</code> indique à la fonction <code>mean</code> de ne pas tenir compte des valeurs manquantes dans le calcul.</p>
+<p>Si on ne dit rien à la fonction <code>mean</code>, cet argument a une valeur par défaut, en l’occurrence <code>FALSE</code> (faux), qui fait qu’il ne supprime pas les valeurs manquantes. Les deux commandes suivantes sont donc rigoureusement équivalentes :</p>
+<pre class="r"><code>mean(tailles)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(tailles, na.rm = FALSE)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="rmdnote">
+<p>
+Lorsqu’on passe un argument à une fonction de cette manière, c’est-à-dire sous la forme <code>nom = valeur</code>, on parle d’<em>argument nommé</em>.
+</p>
+</div>
 </div>
 </div>
 <div id="data-frames" class="section level2">
@@ -388,6 +503,12 @@ plot(speed ~ age, data=df, col=&quot;blue&quot;, pch=1, cex=1.2)</code></pre>
 <pre class="r"><code>library(questionr)
 data(hdv2003)</code></pre>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><code>c</code> est l’abbréviation de <em>combine</em>, son nom est très court car on l’utilise très souvent<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
 

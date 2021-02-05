@@ -2,7 +2,7 @@
 title: "Introduction et Concepts de base"
 output:
   #pdf_document: default
-  html_document:
+  html_document: 
     css: theme.css
 editor_options:
   chunk_output_type: console
@@ -33,12 +33,10 @@ d <- 10/3
 e <- 5^2
 Resultat <- a + b + c +d +e
 
-Texte <- "Hello students, the result is "
+Text <- "Hello students, the result is "
 ```
 
 Rmarkdown permet combiner text et code: `r Text`  `r Resultat`
-
-
 
 
 ```{r, include=FALSE}
@@ -47,8 +45,7 @@ b
 c
 d
 e
-Texte
-
+Text
 ```
 
 
@@ -87,38 +84,23 @@ taille5 <- 173
 
 
 Cette manière de faire n'est évidemment pas pratique du tout. 
-On va plutôt stocker l'ensemble de nos tailles dans un seul objet, de type *vecteur*, avec la syntaxe suivante :
-
+On va plutôt stocker l'ensemble de nos tailles dans un seul objet, de type *vecteur*, avec la syntaxe suivante: 
 ```{r}
 tailles <- c(156, 164, 197, 147, 173)
-#tailles
-```
+tailles
 
-
-Un *vecteur* dans R est un objet qui peut contenir plusieurs informations du *même type*, potentiellement en très grand nombre.
-
-L'avantage d'un vecteur est que lorsqu'on lui applique une opération, celle-ci s'applique à toutes les valeurs qu'il contient. Ainsi, si on veut la taille en mètres plutôt qu'en centimètres, on peut faire :
-
-
-```{r}
+# Taille en metres
 tailles_m <- tailles / 100
 tailles_m
-```
 
+#Cela fonctionne pour toutes les opérations de base :
 
-L'avantage d'un vecteur est que lorsqu'on lui applique une opération, celle-ci s'applique à toutes les valeurs qu'il contient. Ainsi, si on veut la taille en mètres plutôt qu'en centimètres, on peut faire :
-
-```{r}
-tailles_m <- tailles / 100
-tailles_m
-```
-
-Cela fonctionne pour toutes les opérations de base :
-
-```{r}
 tailles + 10
 tailles^2
 ```
+
+L'avantage d'un vecteur est que lorsqu'on lui applique une opération, celle-ci s'applique à toutes les valeurs qu'il contient. 
+
 
 Imaginons maintenant qu'on a aussi demandé aux cinq mêmes personnes leur poids en kilos. 
 On peut alors créer un deuxième vecteur :
@@ -128,15 +110,23 @@ poids <- c(45, 59, 110, 44, 88)
 ```
 
 On peut alors effectuer des calculs utilisant nos deux vecteurs `tailles` et `poids`. 
+
 On peut par exemple calculer l'indice de masse corporelle (IMC) de chacun de nos enquêtés en divisant leur poids en kilo par leur taille en mètre au carré :
 
 ```{r}
+# option 1
 imc <- poids / (tailles / 100) ^ 2
+imc
+
+# option 2
+imc <- poids / (tailles_m) ^ 2
 imc
 ```
 
 Un vecteur peut contenir des nombres, mais il peut aussi contenir du texte. 
-Imaginons qu'on a demandé aux 5 mêmes personnes leur niveau de diplôme : on peut regrouper l'information dans un vecteur de *chaînes de caractères*. Une chaîne de caractère contient du texte libre, délimité par des guillemets simples ou doubles :
+
+Imaginons qu'on a demandé aux 5 mêmes personnes leur niveau de diplôme : on peut regrouper l'information dans un vecteur de *chaînes de caractères*. 
+Une chaîne de caractère contient du texte libre, délimité par des guillemets simples ou doubles :
 
 ```{r}
 diplome <- c("CAP", "Bac", "Bac+2", "CAP", "Bac+3")
@@ -151,7 +141,8 @@ On peut accéder à un élément particulier d'un vecteur en faisant suivre le n
 
 ```{r}
 diplome[1]
-diplome[c(1,2,3)]
+diplome[2]
+#diplome[c(1,2,3)]
 ```
 
 ### L'opérateur `:`
@@ -161,18 +152,27 @@ Il permet de générer rapidement un vecteur comprenant tous les nombres entre d
 ```{r}
 diplome[1:3]
 
+# Vecteurs très longes
 x <- 1:200
 x
 ```
 
 
+
+Des questions?...
+
+
 ### Fonctions
 
-Nous devons aborder les *fonctions* qui sont, avec les objets, un deuxième concept de base de R. 
+- Deuxième concept de base de R. 
 
-On utilise des fonctions pour effectuer des calculs, obtenir des résultats et accomplir des actions. 
+- On utilise des fonctions pour effectuer des calculs, obtenir des résultats et accomplir des actions. 
 
-Une fonction a un *nom*, elle prend en entrée entre parenthèses un ou plusieurs *arguments* (ou *paramètres*), et retourne un *résultat*.
+- Une fonction a:
+
+  1. un *nom*, 
+  2. Elle prend en entrée entre parenthèses un ou plusieurs *arguments* (ou *paramètres*), 
+  3.Retourne un *résultat*.
 
 Exemple: Si on veut connaître le nombre d'éléments du vecteur `tailles` que nous avons construit précédemment, on peut utiliser la fonction `length`, de cette manière :
 
@@ -185,7 +185,7 @@ sum(tailles)
 mean(tailles)
 range(tailles)
 
-# Voir lai'de des fonctions
+# Voir l'aide des fonctions
 ?length
 ?max
 ```
@@ -204,18 +204,21 @@ range(tailles)
 ```{r}
 diplome <- c("CAP", "Bac", "Bac+2", "CAP", "Bac+3")
 unique(diplome)
+
+nchar(diplome)
+
+
 ```
 
 - `unique`, qui supprime toutes les valeurs en double dans un vecteur, qu'il s'agisse de nombres ou de chaînes de caractères :
 
 
-
-
 ### Arguments
 
-Une fonction peut prendre plusieurs arguments, dans ce cas on les indique toujours entre parenthèses, séparés par des virgules. 
+- Une fonction peut prendre plusieurs arguments, dans ce cas on les indique toujours entre parenthèses, séparés par des virgules. 
 
-On a déjà rencontré un exemple de fonction acceptant plusieurs arguments : la fonction `c`, qui combine l'ensemble de ses arguments en un vecteur^[`c` est l'abbréviation de *combine*, son nom est très court car on l'utilise très souvent] :
+- Un exemple de fonction acceptant plusieurs arguments : 
+la fonction `c`, qui combine l'ensemble de ses arguments en un vecteur^[`c` est l'abbréviation de *combine*, son nom est très court car on l'utilise très souvent] :
 
 ```{r}
 tailles <- c(156, 164, 197, 181, 173)
@@ -223,14 +226,18 @@ tailles <- c(156, 164, 197, 181, 173)
 
 Ici, `c` est appelée en lui passant cinq arguments, les cinq tailles séparées par des virgules, et elle renvoie un vecteur numérique regroupant ces cinq valeurs.
 
+
 Supposons maintenant que dans notre vecteur `tailles` nous avons une valeur manquante (une personne a refusé de répondre, ou notre mètre mesureur était en panne). On symbolise celle-ci dans R avec le code interne `NA` :
+
 
 ```{r}
 tailles <- c(156, 164, 197, NA, 173)
 tailles
 ```
 
-```{block, type='rmdnote'}
+
+
+```{block, type='infobox'}
 `NA` est l'abbréviation de *Not available*, non disponible. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante, qu'il s'agisse d'un nombre, d'une chaîne de caractères, etc.
 ```
 
