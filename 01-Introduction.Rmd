@@ -265,7 +265,7 @@ R étant un logiciel libre, il bénéficie d’un développement communautaire r
 
 L’installation de base de R permet de faire énormément de choses, mais le langage dispose en plus d’un système d’extensions permettant d’ajouter facilement de nouvelles fonctionnalités. La plupart des extensions sont développées et maintenues par la communauté des utilisateurs de R, et diffusées via un réseau de serveurs nommé CRAN (Comprehensive R Archive Network).
 
-```{r}
+```{r, eval=FALSE}
 # Options 1
 install.packages("questionr")
 install.packages("tidyverse")
@@ -289,7 +289,196 @@ library(tidyverse)
 Prenons une Pause de 10 min !!!
 
 
+## Tableau de Données (Data Frames)
 
+
+L'utilisation de `library` permet de rendre "disponibles", dans notre session R, les fonctions et jeux de données inclus dans l'extension.
+
+Nous devons ensuite indiquer à R que nous souhaitons accéder au jeu de données à l'aide de la commande `data` :
+
+```{r}
+data(hdv2003)
+
+# Voir les donnes
+hdv2003
+
+# Voir (mieux) les donnes
+View(hdv2003)
+
+# Assigne une variable à un data frame. 
+enquete <- hdv2003
+
+```
+
+### Exploration du data frame:
+
+
+```{r}
+
+# Nombre des lignes
+nrow(enquete)
+
+# Nombre de colonnes
+ncol(enquete)
+
+# Or
+dim(enquete)
+
+
+# Noms des colonnes
+names(enquete)
+
+# Structure du tableau
+str(enquete)
+```
+
+### L'opérateur `$`
+
+Une opération très importante est l'accès aux variables du tableau (à ses colonnes) pour pouvoir les manipuler, effectuer des calculs, etc. 
+
+On utilise pour cela l'opérateur `$`, qui permet d'accéder aux colonnes du tableau. 
+
+
+```{r}
+enquete$sexe
+```
+
+- `d$sexe` est un vecteur de chaînes de caractères tels qu'on en a déjà rencontré précédemment.
+
+- R va nous afficher l'ensemble des valeurs de notre variable `sexe` dans la console, ce qui est à nouveau fort peu utile. 
+
+
+Afficher seulement les premières ou dernières valeurs d'une variable, on peut utiliser les fonctions `head` et `tail` :
+
+```{r}
+head(enquete$age, 10)
+
+tail(enquete$age, 10)
+```
+
+
+### Creer de nouvelle vecteurs `$`
+
+On peut aussi utiliser l'opérateur `$` pour créer une nouvelle variable dans notre tableau : pour cela, il suffit de lui assigner une valeur.
+
+
+```{r}
+# Par exemple, la variable `heures.tv` contient le nombre d'heures passées quotidiennement devant la télé :
+
+head(enquete$heures.tv, 10)
+
+# Nouvelle variable dans notre tableau qui contienne la même durée mais en minutes.
+
+enquete$minutes.tv <- enquete$heures.tv * 60
+
+# Constate la nouvelle variable
+head(enquete$minutes.tv)
+
+```
+
+ 
+## Introduction à la visualisation des donnés
+
+### Indicateurs de centralité
+
+Pour cela on peut commencer par regarder les valeurs extrêmes, avec les fonctions min, max ou range :
+
+
+```{r}
+# Valeurs descriptives de centralité
+min(enquete$age)
+max(enquete$age)
+range(enquete$age)
+
+# Moyenne vs Médian
+mean(enquete$age)
+median(enquete$age)
+
+#Une différence entre les deux indicateurs est que la médiane est beaucoup moins sensible aux valeurs “extrêmes” : on dit qu’elle est plus robuste. Ainsi, en 2013, le salaire net moyen des salariés à temps plein en France était de 2202 euros, tandis que le salaire net médian n’était que de 1772 euros. La différence étant due à des très hauts salaires qui “tirent” la moyenne vers le haut.
+
+```
+
+### Indicateurs de Dispersion
+
+Les indicateurs de dispersion permettent de mesurer si les valeurs sont plutôt regroupées ou au contraire plutôt dispersées.
+
+```{r}
+max(enquete$age) - min(enquete$age)
+
+
+# Variance
+var(enquete$age)
+
+# L’écart-type (standard deviation)
+sd(enquete$age)
+
+# Variance ou, de manière équivalente, l’écart-type (qui est égal à la racine carrée de la variance).
+sd(enquete$age)^2
+
+
+```
+
+Une autre manière de mesurer la dispersion est de calculer les quartiles :
+
+- le premier quartile est la valeur pour laquelle on a 25% des observations en dessous et 75% au dessus
+
+- le deuxième quartile est la valeur pour laquelle on a 50% des observations en dessous et 50% au dessus (c'est donc la médiane)
+
+- le troisième quartile est la valeur pour laquelle on a 75% des observations en dessous et 25% au dessus
+
+On peut les calculer avec la fonction `quantile` :
+
+```{r}
+## Premier quartile
+quantile(enquete$age, prob = 0.25)
+
+## Troisième quartile
+quantile(enquete$age, prob = 0.75)
+
+# Mediane
+quantile(enquete$age, prob = 0.5)
+median(enquete$age)
+
+
+```
+
+`quantile` prend deux arguments principaux : le vecteur dont on veut calculer le quantile, et un argument `prob` qui indique quel quantile on souhaite obtenir. `prob` prend une valeur entre 0 et 1 : 0.5 est la médiane, 0.25 le premier quartile, 0.1 le premier décile, etc.
+
+Notons enfin que la fonction `summary` permet d'obtenir d'un coup plusieurs indicateurs classiques :
+
+```{r}
+summary(enquete$age)
+```
+
+
+### Histogram
+
+L'outil le plus utile pour étudier la distribution des valeurs d'une variable quantitative reste la représentation graphique. 
+
+La représentation la plus courante est sans doute l'histogramme, fonction `hist` :
+
+```{r}
+hist(enquete$age)
+
+# Personalisation du Histrogramme ----
+
+# l'argument  `breaks`, qui permet d'indiquer le nombre de classes que l'on souhaite. 
+
+hist(enquete$age, breaks = 100)
+
+# Labels
+fig_1 <- 
+hist(enquete$age, col = "skyblue",
+     main = "Répartition des âges des enquêtés",
+     xlab = "Âge",
+     ylab = "Effectif")
+```
+
+La figures suivante p
+
+```{r}
+fig_1
+```
 
 
 # Data Frames
@@ -304,10 +493,6 @@ Check the data.frame df by simply typing in:
 df
 ```
 
-The data has 6 rows and 5 columns:
-```{r, echo=TRUE}
-dim(df)
-```
 
 Because the data are not that big you are able to view them entirely in your R studio. However, if you have very big data you may want to view only the first lines:
 ```{r, echo=TRUE}

@@ -18,7 +18,7 @@ Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.c
 
 ## Prise en main
 
-* Comment créer un vector sous R? 
+- Comment créer un vector sous R? 
 
 > Votre réponse ici
 
@@ -27,30 +27,30 @@ Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.c
 ```
 
 
-1. Quelle est la fonction des crochets `[]`?
+- Quelle est la fonction des crochets `[]`?
 
 > Ecrire votre réponse ici
 
+1. **Exercice pratique 1**
 
-1. On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de personnes du ménage :
+On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de personnes du ménage :
 
-```{r eval=FALSE}
-conjoint1 <- c(1200, 1180, 1750, 2100)
-conjoint2 <- c(1450, 1870, 1690, 0)
-nb_personnes <- c(4, 2, 3, 2)
+```{r eval=FALSE, echo=TRUE}
+conjoint_1 <- c(1200, 1180, 1750, 2100, 1840)
+conjoint_2 <- c(1450, 1870, 1690, 0, 2500)
+nb_personnes <- c(4, 2, 3, 2, 5)
 ```
 
-  - Calculer le revenu total de chaque ménage, puis diviser par le nombre de personnes pour obtenir le revenu par personne de chaque ménage.
-
-  - Calculer le revenu minimum et maximum parmi ceux du premier conjoint. 
+  1. Calculer le revenu total de chaque ménage, puis diviser par le nombre de personnes pour obtenir le revenu par personne de chaque ménage.
+  2. - Calculer le revenu minimum et maximum parmi ceux du premier `conjoint_1`. 
+  4. Calculer le revenu minimum et maximum, mais l'un des enquetés n'a pas voulu répondre :
 
 ```{r eval=FALSE}
-conjoint1 <- c(1200, 1180, 1750, 2100)
+conjoint_1 <- c(1200, 1180, 1750, NA, 1840)
 ```
 
 
-
-1. **Exercice 5**
+2. **Exercice 2**
 
 On a relevé les notes en maths, anglais et sport d'une classe de 6 élèves et on a stocké ces données dans trois vecteurs :
 
@@ -60,10 +60,20 @@ anglais <- c(14, 9, 13, 15, 17, 11)
 sport <- c(18, 11, 14, 10, 8, 12)
 ```
 
-Calculer la moyenne des élèves de la classe en anglais.
+  - Calculer la moyenne des élèves de la classe en anglais.
 
-Calculer la moyenne générale de chaque élève.
+  - Calculer la moyenne générale de chaque élève.
  
+  - Essayez de comprendre le résultat des deux fonctions suivantes (vous pouvez vous aider de la page d'aide de ces fonctions) :
+
+```{r}
+pmin(maths, anglais, sport)
+```
+
+```{r}
+pmax(maths, anglais, sport)
+```
+
 
 
 
