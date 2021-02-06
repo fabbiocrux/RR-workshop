@@ -76,3 +76,25 @@ pmax(maths, anglais, sport)
 
 
 `pmin` et `pmax` renvoient les minimum et maximum "parallèles" des trois vecteurs passés en argument. Ainsi, `pmin` renvoie pour chaque élève la note minimale dans les trois matières, et `pmax` la note maximale.
+
+
+
+# Tableau des donnes
+
+**Exercice 1**
+
+On souhaite étudier la répartition du temps passé devant la télévision par les enquêtés (variable `heures.tv`). 
+Pour cela, affichez les principaux indicateurs de cette variable : valeur minimale, maximale, moyenne, médiane et écart-type. Représentez ensuite sa distribution par un histogramme en 10 classes.
+
+
+```{r eval=FALSE}
+library(questionr)
+data(hdv2003)
+enquete <- hdv2003
+
+summary(enquete$heures.tv)
+sd(enquete$heures.tv, na.rm = TRUE)
+hist(enquete$heures.tv, breaks = 10)
+```
+
+

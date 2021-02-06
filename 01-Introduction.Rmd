@@ -9,18 +9,13 @@ editor_options:
 ---
 
 ```{r setup, include = FALSE, cache = FALSE}
-
 library(knitr)
 library(tidyverse)
 library(questionr)
-
-#knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval=TRUE, echo=TRUE)
+knitr::opts_chunk$set(cache = TRUE, echo = TRUE, eval=TRUE, echo=TRUE, class.source="bg-success")
 ```
 
-
-
 # Prise en Main
-
 ## Comme une calculatrice:
 
 - Vous voyez l’opérateur d’assignation `<-` :
@@ -46,6 +41,8 @@ c
 d
 e
 Text
+
+
 ```
 
 
@@ -67,10 +64,9 @@ Conseils:
 
 
 
-### Vecteurs
+## Vecteurs
 
 Imaginons maintenant qu'on a demandé la taille en centimètres de 5 personnes et qu'on souhaite calculer leur taille moyenne. 
-
 On pourrait créer autant d'objets que de tailles et faire l'opération mathématique qui va bien :
 
 ```{r}
@@ -134,7 +130,7 @@ diplome
 ```
 
 
-### Opérateur `[]`
+## Opérateur `[]`
 
 L'opérateur `[]`, permet donc la sélection d'éléments d'un vecteur.
 On peut accéder à un élément particulier d'un vecteur en faisant suivre le nom du vecteur de crochets contenant le numéro de l'élément désiré. Par exemple :
@@ -145,7 +141,7 @@ diplome[2]
 #diplome[c(1,2,3)]
 ```
 
-### L'opérateur `:`
+## L'opérateur `:`
 
 Il permet de générer rapidement un vecteur comprenant tous les nombres entre deux valeurs, opération assez courante sous R :
 
@@ -162,7 +158,8 @@ x
 Des questions?...
 
 
-### Fonctions
+
+## Fonctions
 
 - Deuxième concept de base de R. 
 
@@ -237,9 +234,12 @@ tailles
 ```
 
 
+::: {.verbatim data-latex=""}
+`NA` est l'abbréviation de *Not available*, non disponible. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante, qu'il s'agisse d'un nombre, d'une chaîne de caractères, etc.
+:::
 
 ```{block, type='infobox'}
-`NA` est l'abbréviation de *Not available*, non disponible. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante, qu'il s'agisse d'un nombre, d'une chaîne de caractères, etc.
+t
 ```
 
 Si je calcule maintenant la taille moyenne à l'aide de la fonction `mean`, j'obtiens :
@@ -289,14 +289,13 @@ library(tidyverse)
 Prenons une Pause de 10 min !!!
 
 
-## Tableau de Données (Data Frames)
-
+# Tableau de Données (Data Frames)
 
 L'utilisation de `library` permet de rendre "disponibles", dans notre session R, les fonctions et jeux de données inclus dans l'extension.
 
 Nous devons ensuite indiquer à R que nous souhaitons accéder au jeu de données à l'aide de la commande `data` :
 
-```{r}
+```{r, include=FALSE}
 data(hdv2003)
 
 # Voir les donnes
@@ -310,11 +309,36 @@ enquete <- hdv2003
 
 ```
 
-### Exploration du data frame:
 
+
+**Variable**      | **Description**
+----------------: | --------------------------------------------------------------------------
+`id`              | Identifiant (numéro de ligne)
+`poids`           | Variable de pondération
+`age`             | Âge
+`sexe`            | Sexe
+`nivetud`         | Niveau d’études atteint
+`occup`           | Occupation actuelle
+`qualif`          | Qualification de l’emploi actuel
+`freres.soeurs`   | Nombre total de frères, sœurs, demi-frères et demi-sœurs
+`clso`            | Sentiment d’appartenance à une classe sociale
+`relig`           | Pratique et croyance religieuse
+`trav.imp`        | Importance accordée au travail
+`trav.satisf`     | Satisfaction ou insatisfaction au travail
+`hard.rock`       | Écoute du Hard rock ou assimilés
+`lecture.bd`      | Lecture de bandes dessinées
+`peche.chasse`    | Pêche ou chasse pour le plaisir au cours des 12 derniers mois
+`cuisine`         | Cuisine pour le plaisir au cours des 12 derniers mois
+`bricol`          | Bricolage ou mécanique pour le plaisir au cours des 12 derniers mois
+`cinema`          | Cinéma au cours des 12 derniers mois
+`sport`           | Sport ou activité physique pour le plaisir au cours des 12 derniers mois
+`heures.tv`       | Nombre moyen d’heures passées à regarder la télévision par jour
+
+
+
+## Exploration du data frame:
 
 ```{r}
-
 # Nombre des lignes
 nrow(enquete)
 
@@ -332,13 +356,11 @@ names(enquete)
 str(enquete)
 ```
 
-### L'opérateur `$`
+## L'opérateur `$`
 
 Une opération très importante est l'accès aux variables du tableau (à ses colonnes) pour pouvoir les manipuler, effectuer des calculs, etc. 
 
 On utilise pour cela l'opérateur `$`, qui permet d'accéder aux colonnes du tableau. 
-
-
 ```{r}
 enquete$sexe
 ```
@@ -351,29 +373,30 @@ enquete$sexe
 Afficher seulement les premières ou dernières valeurs d'une variable, on peut utiliser les fonctions `head` et `tail` :
 
 ```{r}
+# Premier 10 lignes du tableau
 head(enquete$age, 10)
 
+# Dernières 10 lignes du tableau
 tail(enquete$age, 10)
 ```
 
 
-### Creer de nouvelle vecteurs `$`
+## Creer de nouvelle vecteurs `$`
 
 On peut aussi utiliser l'opérateur `$` pour créer une nouvelle variable dans notre tableau : pour cela, il suffit de lui assigner une valeur.
 
 
 ```{r}
-# Par exemple, la variable `heures.tv` contient le nombre d'heures passées quotidiennement devant la télé :
+# Nouvelle variable dans notre tableau qui contienne la même durée mais en minutes.
+enquete$minutes.tv <- enquete$heures.tv * 60
 
+
+# 10 lignes de la variable `heures.tv`
 head(enquete$heures.tv, 10)
 
-# Nouvelle variable dans notre tableau qui contienne la même durée mais en minutes.
-
-enquete$minutes.tv <- enquete$heures.tv * 60
 
 # Constate la nouvelle variable
 head(enquete$minutes.tv)
-
 ```
 
  
@@ -383,14 +406,13 @@ head(enquete$minutes.tv)
 
 Pour cela on peut commencer par regarder les valeurs extrêmes, avec les fonctions min, max ou range :
 
-
 ```{r}
 # Valeurs descriptives de centralité
 min(enquete$age)
 max(enquete$age)
 range(enquete$age)
 
-# Moyenne vs Médian
+# Moyenne vs Médiane
 mean(enquete$age)
 median(enquete$age)
 
@@ -403,8 +425,8 @@ median(enquete$age)
 Les indicateurs de dispersion permettent de mesurer si les valeurs sont plutôt regroupées ou au contraire plutôt dispersées.
 
 ```{r}
+# Extension d'ages
 max(enquete$age) - min(enquete$age)
-
 
 # Variance
 var(enquete$age)
@@ -414,8 +436,6 @@ sd(enquete$age)
 
 # Variance ou, de manière équivalente, l’écart-type (qui est égal à la racine carrée de la variance).
 sd(enquete$age)^2
-
-
 ```
 
 Une autre manière de mesurer la dispersion est de calculer les quartiles :
@@ -438,8 +458,6 @@ quantile(enquete$age, prob = 0.75)
 # Mediane
 quantile(enquete$age, prob = 0.5)
 median(enquete$age)
-
-
 ```
 
 `quantile` prend deux arguments principaux : le vecteur dont on veut calculer le quantile, et un argument `prob` qui indique quel quantile on souhaite obtenir. `prob` prend une valeur entre 0 et 1 : 0.5 est la médiane, 0.25 le premier quartile, 0.1 le premier décile, etc.
@@ -451,19 +469,16 @@ summary(enquete$age)
 ```
 
 
-### Histogram
+### Histogramme
 
 L'outil le plus utile pour étudier la distribution des valeurs d'une variable quantitative reste la représentation graphique. 
-
 La représentation la plus courante est sans doute l'histogramme, fonction `hist` :
 
 ```{r}
 hist(enquete$age)
 
 # Personalisation du Histrogramme ----
-
 # l'argument  `breaks`, qui permet d'indiquer le nombre de classes que l'on souhaite. 
-
 hist(enquete$age, breaks = 100)
 
 # Labels
@@ -474,11 +489,38 @@ hist(enquete$age, col = "skyblue",
      ylab = "Effectif")
 ```
 
-La figures suivante p
-
+La figures suivante est l'histogramme: 
 ```{r}
 fig_1
 ```
+
+
+### Résumé des donnes
+
+La fonction `summary` permets  simplement de compter, pour chacune des valeurs possibles de la variable (pour chacune des modalités), le nombre d’observations ayant cette valeur
+
+```{r}
+summary(enquete$sexe)
+summary(enquete$qualif)
+
+# Frequence de répartition en pourcentages. 
+# fonction freq de l’extension questionr, qui devra donc avoir précédemment été chargée avec library(questionr)
+freq(enquete$qualif)
+```
+
+La colonne `n` représente les effectifs de chaque catégorie, la colonne `%` le pourcentage, et la colonne `val%` le pourcentage calculé sur les valeurs valides, donc en excluant les `NA`. Une ligne a également été rajoutée pour indiquer le nombre et la proportion de `NA`.
+
+`freq` accepte un certain nombre d'arguments pour personnaliser son affichage. Par exemple :
+
+- `valid` indique si on souhaite ou non afficher les pourcentages sur les valeurs valides
+- `cum` indique si on souhaite ou non afficher les pourcentages cumulés
+- `total` permet d'ajouter une ligne avec les effectifs totaux
+- `sort` permet de trier le tableau par fréquence croissante (`sort="inc"`) ou décroissante (`sort="dec"`).
+
+```{r}
+data(rp99)
+```
+
 
 
 # Data Frames

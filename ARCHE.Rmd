@@ -12,11 +12,13 @@ library(tidyverse)
 library(babynames)
 ```
 
-# Sprint 1
+# Sprint 1: Prise en main
 
-Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.cloud/learn/primers/1.2). Timming 20Min.
+1) Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.cloud/learn/primers/1.2). Timming 20Min.
 
-## Prise en main
+2) Vous pouvez lire le de cet type. [Analyse-R](https://larmarange.github.io/analyse-R/vecteurs-indexation-et-assignation.html)
+
+## Questions: 
 
 - Comment créer un vector sous R? 
 
@@ -26,12 +28,11 @@ Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.c
 # Mets ici un example
 ```
 
-
 - Quelle est la fonction des crochets `[]`?
 
 > Ecrire votre réponse ici
 
-1. **Exercice pratique 1**
+## Exercice Pratique 1
 
 On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de personnes du ménage :
 
@@ -50,7 +51,7 @@ conjoint_1 <- c(1200, 1180, 1750, NA, 1840)
 ```
 
 
-2. **Exercice 2**
+## Exercice Pratique 2
 
 On a relevé les notes en maths, anglais et sport d'une classe de 6 élèves et on a stocké ces données dans trois vecteurs :
 
@@ -61,9 +62,7 @@ sport <- c(18, 11, 14, 10, 8, 12)
 ```
 
   - Calculer la moyenne des élèves de la classe en anglais.
-
   - Calculer la moyenne générale de chaque élève.
- 
   - Essayez de comprendre le résultat des deux fonctions suivantes (vous pouvez vous aider de la page d'aide de ces fonctions) :
 
 ```{r}
@@ -74,6 +73,44 @@ pmin(maths, anglais, sport)
 pmax(maths, anglais, sport)
 ```
 
+
+
+# Tableau de Données
+
+
+
+## Exercice Pratique 1
+
+```{r}
+library(tidyverse)
+library(questionr)
+data(hdv2003)
+enquete <- hdv2003
+```
+
+
+On souhaite étudier la répartition du temps passé devant la télévision par les enquêtés (variable `heures.tv`). 
+Pour cela, affichez les principaux indicateurs de cette variable : valeur minimale, maximale, moyenne, médiane et écart-type. 
+Représentez ensuite sa distribution par un histogramme en 10 classes.
+
+
+
+**Exercice 2**
+
+
+
+
+# Introduction Tidyverse
+
+Les principes d’un jeu de données tidy sont les suivants :
+
+1. Ecrivez votre réponse 
+2. Ecrivez votre réponse 
+3. Ecrivez votre réponse 
+
+
+
+## Exercice 1
 
 
 
@@ -232,7 +269,6 @@ babynames %>%
 
 - Inspiré par [Hans Rosling](https://www.youtube.com/watch?v=jbkSRLYSojo)
 
-Regardez la documentation de [`gapminder` data package](https://github.com/jennybc/gapminder)
 
 ```{r data}
 # Code pour Lire la base de donnes 'Gapminder'
