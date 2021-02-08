@@ -12,25 +12,26 @@ library(tidyverse)
 library(babynames)
 ```
 
-# Sprint 1: Prise en main
 
-1) Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.cloud/learn/primers/1.2). Timming 20Min.
+# Prise en main
 
-2) Vous pouvez lire le de cet type. [Analyse-R](https://larmarange.github.io/analyse-R/vecteurs-indexation-et-assignation.html)
+1) Régardez la video : [https://rstudio.cloud/learn/primers/1.2](https://rstudio.cloud/learn/primers/1.2). Timming 20 Min.
 
-## Questions: 
 
-- Comment créer un vector sous R? 
+## Questions théoriques: 
+
+* Comment créer un vector sous R? 
 
 > Votre réponse ici
 
 ```{r vector, echo=TRUE}
 # Mets ici un example
+
 ```
 
 - Quelle est la fonction des crochets `[]`?
-
 > Ecrire votre réponse ici
+
 
 ## Exercice Pratique 1
 
@@ -44,7 +45,7 @@ nb_personnes <- c(4, 2, 3, 2, 5)
 
   1. Calculer le revenu total de chaque ménage, puis diviser par le nombre de personnes pour obtenir le revenu par personne de chaque ménage.
   2. - Calculer le revenu minimum et maximum parmi ceux du premier `conjoint_1`. 
-  4. Calculer le revenu minimum et maximum, mais l'un des enquetés n'a pas voulu répondre :
+  3. Calculer le revenu minimum et maximum, mais l'un des enquetés n'a pas voulu répondre :
 
 ```{r eval=FALSE}
 conjoint_1 <- c(1200, 1180, 1750, NA, 1840)
@@ -75,153 +76,56 @@ pmax(maths, anglais, sport)
 
 
 
-# Tableau de Données
+# Introduction au Tableau de Données
+
+Régardez les tutoriels : 
+
+1. [https://rstudio.cloud/learn/primers/2.3](https://rstudio.cloud/learn/primers/2.2). Timming 20 Min.
+
+2. [https://rstudio.cloud/learn/primers/2.3](https://rstudio.cloud/learn/primers/2.3)
 
 
 
-## Exercice Pratique 1
-
-```{r}
-library(tidyverse)
-library(questionr)
-data(hdv2003)
-enquete <- hdv2003
-```
-
-
-On souhaite étudier la répartition du temps passé devant la télévision par les enquêtés (variable `heures.tv`). 
-Pour cela, affichez les principaux indicateurs de cette variable : valeur minimale, maximale, moyenne, médiane et écart-type. 
-Représentez ensuite sa distribution par un histogramme en 10 classes.
-
-
-
-**Exercice 2**
-
-
-
-
-# Introduction Tidyverse
-
-Les principes d’un jeu de données tidy sont les suivants :
-
-1. Ecrivez votre réponse 
-2. Ecrivez votre réponse 
-3. Ecrivez votre réponse 
-
-
-
-## Exercice 1
-
-
-
-
-
-## ggplot
-
-1 Quels sont les trois fonction essentielles pour créer un grafique en  `ggplot2`?
-
->  1. Votre réponse
->  2. Votre réponse
->  3. Votre réponse
-
-1. Qu'est ce que c'est un `geom_` en `ggplot` ?
-
-> Votre réponse
-
-1. Quel `geom_` utiliseriez-vous pour représenter un nuage de points ? Une boîte à moustaches ?
-
->Votre réponse
-
-
-```{r}
-# Une exemple de boîte à moustache donnes `mpg`
-```
-
-
-1. Quels sont les composant éléménts qu'un graphics a besoin en `ggplot`?
-
-```{r}
-# Votre réponse
-```
-
-
-1. Faites un nuage de points de `cty` vs `hwy` de jeu de donnes `mpg`?
-
-```{r}
-# ggplot(data = <DATA>) + 
-#   aes(x = <X>, y = <Y>)
-#  <GEOM_FUNCTION>()
-```
-
-
-1. Dans le jeu de donnés `mpg`, graphiquez les nuage de points `cty` vs `hwy`, en en prenant le facteur `drv` comme un variable de differentiation par la couleur.
-
-```{r}
-#ggplot(data = mpg) + 
-#  aes(x = ___, y = ____, __ = ____ ) +
-#  geom_point()
-```
-
-## Tidyverse
-
-### Tibble
+## Questions théoriques
 
 1. Qu’est-ce qu’un `tibble` par rapport au format `data.frame` et quel est la principale avantage de ce format ?
 
 > # Votre réponse
 
-
-1.  Expliquez les fonctions suivantes:
+2.  Expliquez a quoi servent les fonctions suivantes (avec vos mots):
  
 * `select()` and `filter()`: ____
 * `arrange()`: ___
 * `%>%`: ____
-* `mutate()`, `group_by()`, and `summarize()`: ____
+* `mutate()`, `group_by()`, and `summarise()`: ____
 
 
-```{r}
-# Votre réponse
-```
- 
-
-1. Quels sont les `helpers` de la fonctionne `select()`?
+3. Quels sont les `helpers` de la fonction `select()`?
 
 > Votre réponse
 
 
-
-1 Pouvez-vous écrire le code pour filtrer le prénom 'Zack', et savoir combien de fois dans il a été donné le jeu de donnes `babynames`?
-
-> Votre réponse
-
-```{r}
-
-babynames %>% filter(name == 'James') %>% select(year, n)
-
-```
-
-
-1. Expliquez à quoi ça sert l'operateur `>=`?
+4. Expliquez à quoi ça sert l'operateur `>=`?
 
 > Votre réponse
 
 
-1. Quels sont les quatre erreurs les plus courants avec la fonction `filter`?
+5. Quels sont les quatre erreurs les plus courants avec la fonction `filter`?
 
 > Votre réponse
 
 
-1. Expliquez l'erreur dans le code `filter(babynames, 10 < n < 20)`?
+6. Expliquez l'erreur dans le code `filter(babynames, 10 < n < 20)`?
 
 > Votre réponse
 
-Si je veux le faire, comment il faut le faire?
+Si je veux filtrer faire, comment il faut le faire?
 
 ```{r}
 # babynames %>% filter( _______ )
 ```
 
-1. Expliquez l'interet de l'opérateur **Pipe** `%>%`?
+7. Expliquez l'interet de l'opérateur **Pipe** `%>%`?
 
 > Votre réponse
 
@@ -229,37 +133,72 @@ Si je veux le faire, comment il faut le faire?
 # Un exemple
 ```
 
-1. Quels sont les prenoms le plus populaires (masculin et feminine) l'année 2000 selon les donnés `babynames`?
+
+## Exercice Pratique 1
+
+
+Vous avez ces donnes:
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# Lire les donnes
+mydata <-  read_csv2("data/taille.csv")
+```
+
+Calculez:
+
+- Donner le nombre total de réponse par sexe.
+- Calculez la taille max, min et moyen par sexe.
+- Filtrez les individus avec un Doctorat.
+- Ajouter une nouvelle variable avec la notation "Good" pour `grade` A et "Neutral" `grade` B et "Bad" pour le `grade` C.
+
+
+# Introduction à la visualisation des données avec ggplot2
+
+
+Régardez le tutoriel: 
+
+1. [https://rstudio.cloud/learn/primers/1.1](https://rstudio.cloud/learn/primers/1.1). Timming 20 Min.
+
+
+
+- Quels sont les composants qu'un grapique a besoin en `ggplot`?
+
+>  1. Votre réponse
+>  2. Votre réponse
+>  3. Votre réponse
+
+- Qu'est ce que c'est un `geom_` en `ggplot` ?
+
+> Votre réponse
+
+
+- Faites un nuage de points entre les données `cty` vs `hwy`  du jeu de données `mpg`?
 
 ```{r}
-# Ici votre code
- babynames %>%
-  filter(year == 2000, sex == 'F') %>% 
-  slice(desc(n))
+# modifiez le code ci-dessous pour réaliser le nuage de points
+# ggplot(data = <DATA>) + 
+#   aes(x = <X>, y = <Y>)
+#  <GEOM_FUNCTION>()
 ```
 
-1. Grafiquez la popularité de prenom `James`.
+
+- Dans le jeu de donnés `mpg`, graphiquez un nuage de points `cty` vs `hwy`, en prenant le facteur `drv` comme un variable de differentiation par la couleur.
 
 ```{r}
-# babynames %>% ...
+#ggplot(data = mpg) + 
+#  aes(x = ___, y = ____, __ = ____ ) +
+#  geom_point()
 ```
 
-1. Listes les types de *fonctions de résumés* courantes dans statistique descriptive?
 
-> 1. 
-> 2.
+- Dans le jeu de donnés `babynames`, Grafiquez la popularité de prenom `James` et `Emma`.
 
-
-1. Quel est l'objectif de ce partie du code?. Expliquez
-
-```r
-babynames %>%
-  group_by(year, sex) %>% 
-  summarise(total = sum(n))
+```{r}
+#babynames %>% ..
 ```
-> # Votre réponse
 
-1. Peut-on grafiquer la curve de total des persones differencié par sex depuis 1880?
+
+- Peut-on grafiquer la curve de total des persones differencié par sex depuis 1980?
 ```{r}
 # Code ici
 ```
@@ -267,35 +206,28 @@ babynames %>%
 
 # Challenge Gapminder
 
-- Inspiré par [Hans Rosling](https://www.youtube.com/watch?v=jbkSRLYSojo)
-
-
 ```{r data}
 # Code pour Lire la base de donnes 'Gapminder'
 gapminder <- read_csv2("data/gapminder.csv")
 
-#table <- knitr::kable(head(gapminder, 10)) # knitr::kable is a function to plot beautiful tables in pdf
 #table 
 gapminder
 
 ```
 
-Choissisez au moins **Deux** taches ci-dessous en presentant un tableau ou bien une graphique 
+Choissisez au moins **Deux** excercises ci-dessous en presentant un tableau ou bien un graphique 
 
   * `dplyr` devrait être votre principal outil de manipulation des données
   * `ggplot2` doit être votre principal outil de visualisation
 
 ## Tasks menu {-}
 
-* L'espérance de vie moyenne sur l'ensemble des années pour la France ?
+* Grafiquez l'espérance de vie moyenne sur l'ensemble des années pour la France ?
+
 
 * Obtenir le maximum et le minimum du PIB par habitant pour tous les continents. (Fait un tableu)
 
-* Regardez la répartition du PIB par habitant entre les pays au sein des continents.
 
-
-* Comment l'espérance de vie varie-t-elle entre les différents continents ? (En utilisant `ggplot`)
+* Comment l'espérance de vie varie-t-elle entre les différents continents ? (En utilisant boxplot de `ggplot`)
 
 * Proposez une analyse! 
-
-

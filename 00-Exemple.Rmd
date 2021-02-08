@@ -1,0 +1,71 @@
+---
+title: "Exemple Rmarkdown"
+author: "Your name"
+date: "Aujourd'hui"
+output:
+  html_document:
+    theme: flatly
+    df_print: paged
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    number_sections: TRUE
+bibliography: biblio.bib 
+link-citations: yes
+linkcolor: blue
+---
+
+
+# Préparation des données
+
+Chargement des données de l'enquête *Histoire de vies* [@HDV2003].
+
+```{r, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=TRUE, warning = FALSE)
+library(questionr)
+library(tidyverse)
+library(kableExtra)
+data(hdv2003)
+enquete <- hdv2003
+```
+
+Dimensions du tableau de données :
+
+```{r}
+dim(hdv2003)
+```
+
+Le tableau contient `r nrow(hdv2003)` observations et `r ncol(hdv2003)` variables.
+
+
+# Graphique
+
+Histogramme de la répartition du nombre d'heures passées quotidiennement devant la télévision :
+
+```{r}
+ggplot(hdv2003) + 
+  geom_histogram(aes(x=heures.tv), binwidth=1) + 
+  facet_grid(~sexe)
+```
+
+
+# Tableau
+
+Tableau croisé entre la catégorie socio-professionnelle et le sentiment d'appartenance à une classe sociale :
+
+
+```{r}
+enquete %>% 
+  group_by(sexe, qualif) %>% 
+  summarise(mean_heures.tv = mean(heures.tv, na.rm=TRUE))
+```
+
+Avec l'equation suivante: 
+
+$$ \frac{1}{x}=y $$
+
+Et, en utilisant la réference @chang_r_2012 p. 48
+
+
+# Bibliographie
+

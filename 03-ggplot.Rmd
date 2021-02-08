@@ -1,0 +1,141 @@
+---
+title: "Introduction à la Visualisation des données"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction à la visualisation des donnés
+
+J'espère vous avez régarde les tutoriel: https://rstudio.cloud/learn/primers/1.1
+
+## Intro
+
+`ggplot2` est une extension du *tidyverse* qui permet de générer des graphiques avec une syntaxe cohérente et puissante. 
+
+Elle nécessite l'apprentissage d'un "mini-langage" supplémentaire, mais permet la construction de graphiques complexes de manière efficace.
+
+Une des particularités de `ggplot2` est qu'elle part du principe que les données relatives à un graphique sont stockées dans un tableau de données (*data frame*, *tibble* ou autre).
+
+
+- `ggplot2` fait partie du coeur du *tidyverse*, elle est donc chargée automatiquement avec :
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+# On peut également la charger explicitement avec:
+library(ggplot2)
+
+```
+
+
+### Histogramme
+
+L'outil le plus utile pour étudier la distribution des valeurs d'une variable quantitative reste la représentation graphique. 
+La représentation la plus courante est sans doute l'histogramme, fonction `hist` :
+
+```{r}
+hist(enquete$age)
+
+# Personalisation du Histrogramme ----
+# l'argument  `breaks`, qui permet d'indiquer le nombre de classes que l'on souhaite. 
+hist(enquete$age, breaks = 100)
+
+# Labels
+fig_1 <- 
+hist(enquete$age, col = "skyblue",
+     main = "Répartition des âges des enquêtés",
+     xlab = "Âge",
+     ylab = "Effectif")
+```
+
+La figures suivante est l'histogramme: 
+```{r}
+fig_1
+```
+
+
+### Résumé des donnes
+
+La fonction `summary` permets  simplement de compter, pour chacune des valeurs possibles de la variable (pour chacune des modalités), le nombre d’observations ayant cette valeur
+
+```{r}
+summary(enquete$sexe)
+summary(enquete$qualif)
+
+# Frequence de répartition en pourcentages. 
+# fonction freq de l’extension questionr, qui devra donc avoir précédemment été chargée avec library(questionr)
+freq(enquete$qualif)
+```
+
+La colonne `n` représente les effectifs de chaque catégorie, la colonne `%` le pourcentage, et la colonne `val%` le pourcentage calculé sur les valeurs valides, donc en excluant les `NA`. Une ligne a également été rajoutée pour indiquer le nombre et la proportion de `NA`.
+
+`freq` accepte un certain nombre d'arguments pour personnaliser son affichage. Par exemple :
+
+- `valid` indique si on souhaite ou non afficher les pourcentages sur les valeurs valides
+- `cum` indique si on souhaite ou non afficher les pourcentages cumulés
+- `total` permet d'ajouter une ligne avec les effectifs totaux
+- `sort` permet de trier le tableau par fréquence croissante (`sort="inc"`) ou décroissante (`sort="dec"`).
+
+```{r}
+data(rp99)
+```
+
+
+
+# Visualisation des données avec `ggplot2`
+
+`ggplot2` est une extension du tidyverse qui permet de générer des graphiques avec une syntaxe cohérente et puissante. 
+
+Elle nécessite l’apprentissage d’un “mini-langage” supplémentaire, mais permet la construction de graphiques complexes de manière efficace.
+
+
+
+
+```{r}
+# Charger les librairies
+library(tidyverse) # Il inclut ggpplot2
+library(questionr)
+
+# Data
+data(rp2012)
+# Filtering Data
+data <- rp2012 %>%  filter(departement %in% c("Oise", "Rhône", "Hauts-de-Seine", "Lozère", "Bouches-du-Rhône"))
+```
+
+
+Ci-dessous se trouve le code utilisé pour construire le graphique. Notez qu'il contient trois fonctions : `ggplot()`, `aes()`, et `geom_point()`.
+
+
+```{r}
+# Initialisation
+  ggplot(data = data)
+
+## Ou, équivalent
+ggplot(data)
+
+
+# Couche par couche avec l'operateut `+`
+
+ggplot(data = data, ) + 
+  aes() +
+    geom_XX()
+```
+
+
+## Histrogramme
+
+```{r}
+# Ne marche pas! 
+ggplot(data) + 
+   geom_histogram()
+
+# ça marche! 
+ggplot(data) + 
+  aes(x = cadres) +
+  geom_histogram()
+```
+
+

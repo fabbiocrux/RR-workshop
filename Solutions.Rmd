@@ -98,3 +98,17 @@ hist(enquete$heures.tv, breaks = 10)
 ```
 
 
+
+- Dans le jeu de donnés `babynames`, Grafiquez la popularité de prenom `James` et `Emma`.
+
+```{r}
+babynames %>% 
+  filter(name == "Garrett" | name == "Emma") %>% 
+  select(name, year, n) %>% 
+  ggplot() +
+    geom_line(aes(x = year, y = n, color = name)) +
+    labs(title = "Popularity of the name Garrett")
+```
+
+
+

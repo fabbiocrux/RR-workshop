@@ -1,0 +1,291 @@
+---
+title: "Prise en Main"
+author: "Fabio CRUZ"
+output:
+  html_document:
+    theme: flatly
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    number_sections: TRUE
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
+```
+
+# Prise en Main
+
+## Comme une calculatrice:
+
+- Vous voyez l’opérateur d’assignation `<-` :
+
+```{r, eval=TRUE, echo=TRUE}
+a <- 2+2
+b <- 5-7
+c <- 4*12
+d <- 10/3
+e <- 5^2
+Resultat <- a + b + c +d +e
+
+Text <- "Hello students, the result is "
+```
+
+Rmarkdown permet combiner text et code: `r Text`  `r Resultat`
+
+
+```{r, include=FALSE}
+a
+b
+c
+d
+e
+Text
+```
+
+
+
+
+```{block, type='infobox'}
+- Les noms d'objets peuvent contenir des lettres, des chiffres, les symboles `.` et `_`. 
+
+- Ils ne peuvent pas commencer par un chiffre. 
+
+- R fait la différence entre minuscules et majuscules dans les noms d'objets, ce qui signifie que `x` et `X` seront deux objets différents, tout comme `resultat` et `Resultat`. 
+
+Conseils:
+
+- Il est préférable d'éviter les majuscules (pour les risques d'erreur) et les caractères accentués (pour des questions d'encodage) dans les noms d'objets. 
+
+- De même, il faut essayer de trouver un équilibre entre clarté du nom (comprendre à quoi sert l'objet, ce qu'il contient) et sa longueur. Par exemple, on préfèrera comme nom d'objet `taille_conj1` à `taille_du_conjoint_numero_1` (trop long) ou à `t1` (pas assez explicite).
+```
+
+
+
+## Vecteurs
+
+Imaginons maintenant qu'on a demandé la taille en centimètres de 5 personnes et qu'on souhaite calculer leur taille moyenne. 
+On pourrait créer autant d'objets que de tailles et faire l'opération mathématique qui va bien :
+
+```{r}
+taille1 <- 156
+taille2 <- 164
+taille3 <- 197
+taille4 <- 147
+taille5 <- 173
+(taille1 + taille2 + taille3 + taille4 + taille5) / 5
+```
+
+
+Cette manière de faire n'est évidemment pas pratique du tout. 
+On va plutôt stocker l'ensemble de nos tailles dans un seul objet, de type *vecteur*, avec la syntaxe suivante: 
+```{r}
+tailles <- c(156, 164, 197, 147, 173)
+tailles
+
+# Taille en metres
+tailles_m <- tailles / 100
+tailles_m
+
+#Cela fonctionne pour toutes les opérations de base :
+
+tailles + 10
+tailles^2
+```
+
+L'avantage d'un vecteur est que lorsqu'on lui applique une opération, celle-ci s'applique à toutes les valeurs qu'il contient. 
+
+
+Imaginons maintenant qu'on a aussi demandé aux cinq mêmes personnes leur poids en kilos. 
+On peut alors créer un deuxième vecteur :
+
+```{r}
+poids <- c(45, 59, 110, 44, 88)
+```
+
+On peut alors effectuer des calculs utilisant nos deux vecteurs `tailles` et `poids`. 
+
+On peut par exemple calculer l'indice de masse corporelle (IMC) de chacun de nos enquêtés en divisant leur poids en kilo par leur taille en mètre au carré :
+
+```{r}
+# option 1
+imc <- poids / (tailles / 100) ^ 2
+imc
+
+# option 2
+imc <- poids / (tailles_m) ^ 2
+imc
+```
+
+Un vecteur peut contenir des nombres, mais il peut aussi contenir du texte. 
+
+Imaginons qu'on a demandé aux 5 mêmes personnes leur niveau de diplôme : on peut regrouper l'information dans un vecteur de *chaînes de caractères*. 
+Une chaîne de caractère contient du texte libre, délimité par des guillemets simples ou doubles :
+
+```{r}
+diplome <- c("CAP", "Bac", "Bac+2", "CAP", "Bac+3")
+diplome
+```
+
+
+## Opérateur `[]`
+
+L'opérateur `[]`, permet donc la sélection d'éléments d'un vecteur.
+On peut accéder à un élément particulier d'un vecteur en faisant suivre le nom du vecteur de crochets contenant le numéro de l'élément désiré. Par exemple :
+
+```{r}
+diplome[1]
+diplome[2]
+#diplome[c(1,2,3)]
+```
+
+## L'opérateur `:`
+
+Il permet de générer rapidement un vecteur comprenant tous les nombres entre deux valeurs, opération assez courante sous R :
+
+```{r}
+diplome[1:3]
+
+# Vecteurs très longes
+x <- 1:200
+x
+```
+
+
+
+Des questions?...
+
+
+
+## Fonctions
+
+- Deuxième concept de base de R. 
+
+- On utilise des fonctions pour effectuer des calculs, obtenir des résultats et accomplir des actions. 
+
+- Une fonction a:
+
+  1. un *nom*, 
+  2. Elle prend en entrée entre parenthèses un ou plusieurs *arguments* (ou *paramètres*), 
+  3.Retourne un *résultat*.
+
+Exemple: Si on veut connaître le nombre d'éléments du vecteur `tailles` que nous avons construit précédemment, on peut utiliser la fonction `length`, de cette manière :
+
+
+```{r}
+length(tailles)
+min(tailles)
+max(tailles)
+sum(tailles)
+mean(tailles)
+range(tailles)
+
+# Voir l'aide des fonctions
+?length
+?max
+help("mean")
+```
+
+- `length`: est le nom de la fonction, on l'appelle en lui passant un argument entre parenthèses (en l'occurrence notre vecteur `tailles`), et elle nous renvoie un résultat, à savoir le nombre d'éléments du vecteur passé en paramètre.
+
+- `min` et `max` retournent respectivement les valeurs minimales et maximales d'un vecteur de nombres.
+
+- `mean`: calcule et retourne la moyenne d'un vecteur de nombres :
+
+- `sum` retourne la somme de tous les éléments du vecteur :
+
+- `range` (étendue) renvoie un vecteur de deux nombres, le minimum et le maximum :
+
+
+```{r}
+diplome <- c("CAP", "Bac", "Bac+2", "CAP", "Bac+3")
+unique(diplome)
+
+nchar(diplome)
+
+
+```
+
+- `unique`, qui supprime toutes les valeurs en double dans un vecteur, qu'il s'agisse de nombres ou de chaînes de caractères :
+
+
+### Arguments
+
+- Une fonction peut prendre plusieurs arguments, dans ce cas on les indique toujours entre parenthèses, séparés par des virgules. 
+
+- Un exemple de fonction acceptant plusieurs arguments : 
+la fonction `c`, qui combine l'ensemble de ses arguments en un vecteur^[`c` est l'abbréviation de *combine*, son nom est très court car on l'utilise très souvent] :
+
+```{r}
+tailles <- c(156, 164, 197, 181, 173)
+```
+
+Ici, `c` est appelée en lui passant cinq arguments, les cinq tailles séparées par des virgules, et elle renvoie un vecteur numérique regroupant ces cinq valeurs.
+
+
+Supposons maintenant que dans notre vecteur `tailles` nous avons une valeur manquante (une personne a refusé de répondre, ou notre mètre mesureur était en panne). On symbolise celle-ci dans R avec le code interne `NA` :
+
+
+```{r}
+tailles <- c(156, 164, 197, NA, 173)
+tailles
+```
+
+
+::: {.verbatim data-latex=""}
+`NA` est l'abbréviation de *Not available*, non disponible. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante, qu'il s'agisse d'un nombre, d'une chaîne de caractères, etc.
+:::
+
+```{block, type='infobox'}
+t
+```
+
+Si je calcule maintenant la taille moyenne à l'aide de la fonction `mean`, j'obtiens :
+
+```{r}
+# Il considère alors que cette moyenne est elle-même "non disponible" et renvoie donc comme résultat `NA`.
+mean(tailles)
+
+# Ceci se fait en ajoutant un argument supplémentaire, nommé `na.rm` (abbréviation de *NA remove*, "enlever les NA"), et de lui attribuer la valeur `TRUE` (code interne de R signifiant *vrai*) :
+
+mean(tailles, na.rm = TRUE)
+```
+
+
+```{block, type='rmdnote'}
+Lorsqu'on passe un argument à une fonction de cette manière, c'est-à-dire sous la forme `nom = valeur`, on parle d'*argument nommé*.
+```
+
+
+## Packages
+
+- R étant un logiciel libre, il bénéficie d’un développement communautaire riche et dynamique. 
+
+- L’installation de base de R permet de faire énormément de choses, mais le langage dispose en plus d’un système d’extensions permettant d’ajouter facilement de nouvelles fonctionnalités. 
+
+- La plupart des extensions sont développées et maintenues par la communauté des utilisateurs de R, et diffusées via un réseau de serveurs nommé CRAN (Comprehensive R Archive Network).
+
+```{r, eval=FALSE}
+# Options 1
+install.packages("questionr")
+install.packages("tidyverse")
+
+# Option 2 --> Paneau
+
+```
+
+
+il faut la “charger” avant de pouvoir utiliser les fonctions qu’elle propose. 
+Ceci se fait avec la fonction `library`.
+
+
+```{r}
+library(questionr)
+library(tidyverse)
+```
+
+
+
+Prenons une Pause de 10 min !!!
+
