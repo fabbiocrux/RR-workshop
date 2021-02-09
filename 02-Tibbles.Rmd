@@ -382,7 +382,7 @@ Ici on effectue d'abord le `filter`, puis le `select`, puis le `arrange`, alors 
 Une autre manière de faire est d'effectuer les opérations les unes après les autres, en stockant les résultats intermédiaires dans un objet temporaire :
 
 ```{r eval=FALSE}
-test <- filter(flights, age == 50)
+test <- filter(enquete, age == 50)
 test <- select(test, id, sexe, freres.soeurs)
 arrange(test, freres.soeurs)
 ```
