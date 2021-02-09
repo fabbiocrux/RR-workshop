@@ -206,6 +206,10 @@ Régardez le tutoriel:
 
 # Challenge Gapminder
 
+
+- Inspiré par [Hans Rosling](https://www.youtube.com/watch?v=jbkSRLYSojo)
+
+
 ```{r data}
 # Code pour Lire la base de donnes 'Gapminder'
 gapminder <- read_csv2("data/gapminder.csv")

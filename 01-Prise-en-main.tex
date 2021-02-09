@@ -1,0 +1,669 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Prise en Main},
+  pdfauthor={Fabio CRUZ},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Prise en Main}
+\author{Fabio CRUZ}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{prise-en-main}{%
+\section{Prise en Main}\label{prise-en-main}}
+
+\hypertarget{comme-une-calculatrice}{%
+\subsection{Comme une calculatrice:}\label{comme-une-calculatrice}}
+
+\begin{itemize}
+\tightlist
+\item
+  Vous voyez l'opérateur d'assignation \texttt{\textless{}-} :
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \DecValTok{2}\SpecialCharTok{+}\DecValTok{2}
+\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{5{-}7}
+\NormalTok{c }\OtherTok{\textless{}{-}} \DecValTok{4}\SpecialCharTok{*}\DecValTok{12}
+\NormalTok{d }\OtherTok{\textless{}{-}} \DecValTok{10}\SpecialCharTok{/}\DecValTok{3}
+\NormalTok{e }\OtherTok{\textless{}{-}} \DecValTok{5}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{Resultat }\OtherTok{\textless{}{-}}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{+}\NormalTok{ c }\SpecialCharTok{+}\NormalTok{d }\SpecialCharTok{+}\NormalTok{e}
+
+\NormalTok{Text }\OtherTok{\textless{}{-}} \StringTok{"Hello students, the result is "}
+\end{Highlighting}
+\end{Shaded}
+
+Rmarkdown permet combiner text et code: Hello students, the result is
+78.3333333
+
+\begin{infobox}
+\begin{itemize}
+\item
+  Les noms d'objets peuvent contenir des lettres, des chiffres, les
+  symboles \texttt{.} et \texttt{\_}.
+\item
+  Ils ne peuvent pas commencer par un chiffre.
+\item
+  R fait la différence entre minuscules et majuscules dans les noms
+  d'objets, ce qui signifie que \texttt{x} et \texttt{X} seront deux
+  objets différents, tout comme \texttt{resultat} et \texttt{Resultat}.
+\end{itemize}
+
+Conseils:
+
+\begin{itemize}
+\item
+  Il est préférable d'éviter les majuscules (pour les risques d'erreur)
+  et les caractères accentués (pour des questions d'encodage) dans les
+  noms d'objets.
+\item
+  De même, il faut essayer de trouver un équilibre entre clarté du nom
+  (comprendre à quoi sert l'objet, ce qu'il contient) et sa longueur.
+  Par exemple, on préfèrera comme nom d'objet \texttt{taille\_conj1} à
+  \texttt{taille\_du\_conjoint\_numero\_1} (trop long) ou à \texttt{t1}
+  (pas assez explicite).
+\end{itemize}
+\end{infobox}
+
+\hypertarget{vecteurs}{%
+\subsection{Vecteurs}\label{vecteurs}}
+
+Imaginons maintenant qu'on a demandé la taille en centimètres de 5
+personnes et qu'on souhaite calculer leur taille moyenne. On pourrait
+créer autant d'objets que de tailles et faire l'opération mathématique
+qui va bien :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{taille1 }\OtherTok{\textless{}{-}} \DecValTok{156}
+\NormalTok{taille2 }\OtherTok{\textless{}{-}} \DecValTok{164}
+\NormalTok{taille3 }\OtherTok{\textless{}{-}} \DecValTok{197}
+\NormalTok{taille4 }\OtherTok{\textless{}{-}} \DecValTok{147}
+\NormalTok{taille5 }\OtherTok{\textless{}{-}} \DecValTok{173}
+\NormalTok{(taille1 }\SpecialCharTok{+}\NormalTok{ taille2 }\SpecialCharTok{+}\NormalTok{ taille3 }\SpecialCharTok{+}\NormalTok{ taille4 }\SpecialCharTok{+}\NormalTok{ taille5) }\SpecialCharTok{/} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 167.4
+\end{verbatim}
+
+Cette manière de faire n'est évidemment pas pratique du tout. On va
+plutôt stocker l'ensemble de nos tailles dans un seul objet, de type
+\emph{vecteur}, avec la syntaxe suivante:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tailles }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{156}\NormalTok{, }\DecValTok{164}\NormalTok{, }\DecValTok{197}\NormalTok{, }\DecValTok{147}\NormalTok{, }\DecValTok{173}\NormalTok{)}
+\NormalTok{tailles}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 156 164 197 147 173
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Taille en metres}
+\NormalTok{tailles\_m }\OtherTok{\textless{}{-}}\NormalTok{ tailles }\SpecialCharTok{/} \DecValTok{100}
+\NormalTok{tailles\_m}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.56 1.64 1.97 1.47 1.73
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cela fonctionne pour toutes les opérations de base :}
+
+\NormalTok{tailles }\SpecialCharTok{+} \DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 166 174 207 157 183
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tailles}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 24336 26896 38809 21609 29929
+\end{verbatim}
+
+L'avantage d'un vecteur est que lorsqu'on lui applique une opération,
+celle-ci s'applique à toutes les valeurs qu'il contient.
+
+Imaginons maintenant qu'on a aussi demandé aux cinq mêmes personnes leur
+poids en kilos. On peut alors créer un deuxième vecteur :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poids }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{59}\NormalTok{, }\DecValTok{110}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DecValTok{88}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+On peut alors effectuer des calculs utilisant nos deux vecteurs
+\texttt{tailles} et \texttt{poids}.
+
+On peut par exemple calculer l'indice de masse corporelle (IMC) de
+chacun de nos enquêtés en divisant leur poids en kilo par leur taille en
+mètre au carré :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# option 1}
+\NormalTok{imc }\OtherTok{\textless{}{-}}\NormalTok{ poids }\SpecialCharTok{/}\NormalTok{ (tailles }\SpecialCharTok{/} \DecValTok{100}\NormalTok{) }\SpecialCharTok{\^{}} \DecValTok{2}
+\NormalTok{imc}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 18.49112 21.93635 28.34394 20.36189 29.40292
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# option 2}
+\NormalTok{imc }\OtherTok{\textless{}{-}}\NormalTok{ poids }\SpecialCharTok{/}\NormalTok{ (tailles\_m) }\SpecialCharTok{\^{}} \DecValTok{2}
+\NormalTok{imc}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 18.49112 21.93635 28.34394 20.36189 29.40292
+\end{verbatim}
+
+Un vecteur peut contenir des nombres, mais il peut aussi contenir du
+texte.
+
+Imaginons qu'on a demandé aux 5 mêmes personnes leur niveau de diplôme :
+on peut regrouper l'information dans un vecteur de \emph{chaînes de
+caractères}. Une chaîne de caractère contient du texte libre, délimité
+par des guillemets simples ou doubles :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diplome }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"CAP"}\NormalTok{, }\StringTok{"Bac"}\NormalTok{, }\StringTok{"Bac+2"}\NormalTok{, }\StringTok{"CAP"}\NormalTok{, }\StringTok{"Bac+3"}\NormalTok{)}
+\NormalTok{diplome}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CAP"   "Bac"   "Bac+2" "CAP"   "Bac+3"
+\end{verbatim}
+
+\hypertarget{opuxe9rateur}{%
+\subsection{\texorpdfstring{Opérateur
+\texttt{{[}{]}}}{Opérateur {[}{]}}}\label{opuxe9rateur}}
+
+L'opérateur \texttt{{[}{]}}, permet donc la sélection d'éléments d'un
+vecteur. On peut accéder à un élément particulier d'un vecteur en
+faisant suivre le nom du vecteur de crochets contenant le numéro de
+l'élément désiré. Par exemple :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diplome[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CAP"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diplome[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Bac"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#diplome[c(1,2,3)]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{lopuxe9rateur}{%
+\subsection{\texorpdfstring{L'opérateur
+\texttt{:}}{L'opérateur :}}\label{lopuxe9rateur}}
+
+Il permet de générer rapidement un vecteur comprenant tous les nombres
+entre deux valeurs, opération assez courante sous R :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diplome[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CAP"   "Bac"   "Bac+2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vecteurs très longes}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{200}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+## [163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
+## [181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
+## [199] 199 200
+\end{verbatim}
+
+Des questions?\ldots{}
+
+\hypertarget{fonctions}{%
+\subsection{Fonctions}\label{fonctions}}
+
+\begin{itemize}
+\item
+  Deuxième concept de base de R.
+\item
+  On utilise des fonctions pour effectuer des calculs, obtenir des
+  résultats et accomplir des actions.
+\item
+  Une fonction a:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    un \emph{nom},
+  \item
+    Elle prend en entrée entre parenthèses un ou plusieurs
+    \emph{arguments} (ou \emph{paramètres}), 3.Retourne un
+    \emph{résultat}.
+  \end{enumerate}
+\end{itemize}
+
+Exemple: Si on veut connaître le nombre d'éléments du vecteur
+\texttt{tailles} que nous avons construit précédemment, on peut utiliser
+la fonction \texttt{length}, de cette manière :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{min}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 147
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 197
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 837
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 167.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{range}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 147 197
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Voir l\textquotesingle{}aide des fonctions}
+\NormalTok{?length}
+\NormalTok{?max}
+\FunctionTok{help}\NormalTok{(}\StringTok{"mean"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\item
+  \texttt{length}: est le nom de la fonction, on l'appelle en lui
+  passant un argument entre parenthèses (en l'occurrence notre vecteur
+  \texttt{tailles}), et elle nous renvoie un résultat, à savoir le
+  nombre d'éléments du vecteur passé en paramètre.
+\item
+  \texttt{min} et \texttt{max} retournent respectivement les valeurs
+  minimales et maximales d'un vecteur de nombres.
+\item
+  \texttt{mean}: calcule et retourne la moyenne d'un vecteur de nombres
+  :
+\item
+  \texttt{sum} retourne la somme de tous les éléments du vecteur :
+\item
+  \texttt{range} (étendue) renvoie un vecteur de deux nombres, le
+  minimum et le maximum :
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diplome }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"CAP"}\NormalTok{, }\StringTok{"Bac"}\NormalTok{, }\StringTok{"Bac+2"}\NormalTok{, }\StringTok{"CAP"}\NormalTok{, }\StringTok{"Bac+3"}\NormalTok{)}
+\FunctionTok{unique}\NormalTok{(diplome)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CAP"   "Bac"   "Bac+2" "Bac+3"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nchar}\NormalTok{(diplome)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3 3 5 3 5
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{unique}, qui supprime toutes les valeurs en double dans un
+  vecteur, qu'il s'agisse de nombres ou de chaînes de caractères :
+\end{itemize}
+
+\hypertarget{arguments}{%
+\subsubsection{Arguments}\label{arguments}}
+
+\begin{itemize}
+\item
+  Une fonction peut prendre plusieurs arguments, dans ce cas on les
+  indique toujours entre parenthèses, séparés par des virgules.
+\item
+  Un exemple de fonction acceptant plusieurs arguments : la fonction
+  \texttt{c}, qui combine l'ensemble de ses arguments en un
+  vecteur\footnote{\texttt{c} est l'abbréviation de \emph{combine}, son
+    nom est très court car on l'utilise très souvent} :
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tailles }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{156}\NormalTok{, }\DecValTok{164}\NormalTok{, }\DecValTok{197}\NormalTok{, }\DecValTok{181}\NormalTok{, }\DecValTok{173}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Ici, \texttt{c} est appelée en lui passant cinq arguments, les cinq
+tailles séparées par des virgules, et elle renvoie un vecteur numérique
+regroupant ces cinq valeurs.
+
+Supposons maintenant que dans notre vecteur \texttt{tailles} nous avons
+une valeur manquante (une personne a refusé de répondre, ou notre mètre
+mesureur était en panne). On symbolise celle-ci dans R avec le code
+interne \texttt{NA} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tailles }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{156}\NormalTok{, }\DecValTok{164}\NormalTok{, }\DecValTok{197}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{173}\NormalTok{)}
+\NormalTok{tailles}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 156 164 197  NA 173
+\end{verbatim}
+
+\begin{verbatim}
+\texttt{NA} est l'abbréviation de \emph{Not available}, non disponible.
+Cette valeur particulière peut être utilisée pour indiquer une valeur
+manquante, qu'il s'agisse d'un nombre, d'une chaîne de caractères, etc.
+
+\end{verbatim}
+
+\begin{infobox}
+t
+\end{infobox}
+
+Si je calcule maintenant la taille moyenne à l'aide de la fonction
+\texttt{mean}, j'obtiens :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Il considère alors que cette moyenne est elle{-}même "non disponible" et renvoie donc comme résultat \textasciigrave{}NA\textasciigrave{}.}
+\FunctionTok{mean}\NormalTok{(tailles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ceci se fait en ajoutant un argument supplémentaire, nommé \textasciigrave{}na.rm\textasciigrave{} (abbréviation de *NA remove*, "enlever les NA"), et de lui attribuer la valeur \textasciigrave{}TRUE\textasciigrave{} (code interne de R signifiant *vrai*) :}
+
+\FunctionTok{mean}\NormalTok{(tailles, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 172.5
+\end{verbatim}
+
+\begin{rmdnote}
+Lorsqu'on passe un argument à une fonction de cette manière,
+c'est-à-dire sous la forme \texttt{nom\ =\ valeur}, on parle
+d'\emph{argument nommé}.
+\end{rmdnote}
+
+\hypertarget{packages}{%
+\subsection{Packages}\label{packages}}
+
+\begin{itemize}
+\item
+  R étant un logiciel libre, il bénéficie d'un développement
+  communautaire riche et dynamique.
+\item
+  L'installation de base de R permet de faire énormément de choses, mais
+  le langage dispose en plus d'un système d'extensions permettant
+  d'ajouter facilement de nouvelles fonctionnalités.
+\item
+  La plupart des extensions sont développées et maintenues par la
+  communauté des utilisateurs de R, et diffusées via un réseau de
+  serveurs nommé CRAN (Comprehensive R Archive Network).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Options 1}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"questionr"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+
+\CommentTok{\# Option 2 {-}{-}\textgreater{} Paneau}
+\end{Highlighting}
+\end{Shaded}
+
+il faut la ``charger'' avant de pouvoir utiliser les fonctions qu'elle
+propose. Ceci se fait avec la fonction \texttt{library}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(questionr)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.0.6     v dplyr   1.0.4
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+Prenons une Pause de 10 min !!!
+
+\end{document}

@@ -31,8 +31,7 @@ revenu_total / nb_personnes
 range(conjoint_1)
 ```
   
- 
-  
+
   - Calculer le revenu minimum et maximum, mais l'un des enquetés n'a pas voulu répondre :
 ```{r eval=FALSE}
 conjoint_1 <- c(1200, 1180, 1750, NA, 1840)

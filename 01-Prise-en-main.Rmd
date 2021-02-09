@@ -4,10 +4,11 @@ author: "Fabio CRUZ"
 output:
   html_document:
     theme: flatly
-    toc: TRUE
-    toc_float: TRUE
+    code_folding: hide
+    toc: yes
+    toc_float: yes
     toc_depth: 3
-    number_sections: TRUE
+    number_sections: yes
 ---
 
 
