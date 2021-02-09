@@ -289,14 +289,13 @@ Le tableau ci-dessous résume les autres outils de `select()`.
 
 Outil   | Utilisation                                               | Exemple
 ----------------- | ------------------------------------------------- | -------
-**-**             | Exclusion de colonnes                               | `select(prenoms, -sex)`
-**:**             | Sélection des colonnes entre 2 colonnes spécifiques (inclusive)                  | `select(prenoms, year:n)`
-**contains()**    | Sélection des colonnes qui contiennent une chaîne de caractère spécifique               | `select(prenoms, contains("n"))`
-**ends_with()**   | Sélection des colonnes qui se terminent par une chaîne de caractère spécifique              | `select(prenoms, ends_with("n"))`
-**matches()**     | Sélection des colonnes qui correspondent à une expression réguliere                  | `select(prenoms, matches("n"))`
-**num_range()**   | Sélection des colonnes avec un suffixe numérique dans l'étendue demandée | Pas applicable à `prenoms`
-**one_of()**      | Sélection des colonnes dont le nom apparaît dans l'ensemble demandé  | `select(prenoms, one_of(c("sex", "name")))`
-**starts_with()** | Sélection des colonnes qui commencent par une chaîne de caractère spécifique            | `select(prenoms, starts_with("n"))`
+**-**             | Exclusion de colonnes                               | `select(enquete, -sexe)`
+**:**             | Sélection des colonnes entre 2 colonnes spécifiques (inclusive)                  | `select(enquete, id:poids)`
+**contains()**    | Sélection des colonnes qui contiennent une chaîne de caractère spécifique               | `select(enquete, contains("trav"))`
+**ends_with()**   | Sélection des colonnes qui se terminent par une chaîne de caractère spécifique              | `select(enquete, ends_with("if"))`
+**matches()**     | Sélection des colonnes qui correspondent à une expression réguliere                  | `select(enquete, matches("n"))`
+**one_of()**      | Sélection des colonnes dont le nom apparaît dans l'ensemble demandé  | `select(enquete, one_of(c("sexe", "cuisine")))`
+**starts_with()** | Sélection des colonnes qui commencent par une chaîne de caractère spécifique            | `select(enquete, starts_with("re"))`
 
 
 
