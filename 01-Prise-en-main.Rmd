@@ -20,31 +20,6 @@ knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 
 ## Comme une calculatrice:
 
-- Vous voyez l’opérateur d’assignation `<-` :
-
-```{r, eval=TRUE, echo=TRUE}
-a <- 2+2
-b <- 5-7
-c <- 4*12
-d <- 10/3
-e <- 5^2
-Resultat <- a + b + c +d +e
-
-Text <- "Hello students, the result is "
-```
-
-Rmarkdown permet combiner text et code: `r Text`  `r Resultat`
-
-
-```{r, include=FALSE}
-a
-b
-c
-d
-e
-Text
-```
-
 
 
 

@@ -49,6 +49,19 @@ prenoms <- c("Nicolas", "Camille", "Phillipe", "Chiara", "Didier", "Diana")
 maths <- c(12, 16, 8, 18, 6, 10)
 anglais <- c(14, 9, 13, 15, 17, 11)
 sport <- c(18, 11, 14, 10, 8, 12)
+
+data <- data.frame(prenoms, maths, anglais, sport)
+data
+
+tibble <- tibble(data)
+
+tibble
+
+data(hdv2003)
+
+
+tibble(hdv2003)
+
 ```
 
   - Calculer la moyenne des élèves de la classe en anglais.
@@ -56,12 +69,27 @@ sport <- c(18, 11, 14, 10, 8, 12)
 ```{r}
 mean(anglais)
 ```
+
+
+
+```{r}
+ggplot(data) +
+  aes(x = prenoms, y=anglais )+
+  geom_col() +
+  geom_hline(yintercept = mean(anglais), color="blue")
+
+```
+
   
   - Calculer la moyenne générale de chaque élève.
 ```{r}
 (maths + anglais + sport)/3
 
+moyen_eleve <- (maths + anglais + sport)/3
 ```
+
+
+
   
   - Essayez de comprendre le résultat des deux fonctions suivantes (vous pouvez vous aider de la page d'aide de ces fonctions) :
 
@@ -79,12 +107,6 @@ pmax(maths, anglais, sport)
 
 
 # Tableau des donnes
-
-**Exercice 1**
-
-On souhaite étudier la répartition du temps passé devant la télévision par les enquêtés (variable `heures.tv`). 
-Pour cela, affichez les principaux indicateurs de cette variable : valeur minimale, maximale, moyenne, médiane et écart-type. Représentez ensuite sa distribution par un histogramme en 10 classes.
-
 
 ```{r eval=FALSE}
 library(questionr)
