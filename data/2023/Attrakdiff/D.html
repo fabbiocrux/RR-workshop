@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons">add739c82ab207ed2c80be4b7e4b181525eb7a75</script>
+  <script type="application/html-dependencies">jquery[3.6.0];shiny-css[1.7.3];shiny-javascript[1.7.3];selectize[0.12.4];datatables[1.10.5];datatables-bootstrap[1.10.5];font-awesome[6.2.0];bootstrap[3.4.1]</script>
+<script src="jquery-3.6.0/jquery.min.js"></script>
+<link href="shiny-css-1.7.3/shiny.min.css" rel="stylesheet" />
+<script src="shiny-javascript-1.7.3/shiny.min.js"></script>
+<link href="selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="selectize-0.12.4/js/selectize.min.js"></script>
+<script src="selectize-0.12.4/accessibility/js/selectize-plugin-a11y.min.js"></script>
+<script src="datatables-1.10.5/js/jquery.dataTables.min.js"></script>
+<link href="datatables-bootstrap-1.10.5/css/dataTables.bootstrap.css" rel="stylesheet" />
+<link href="datatables-bootstrap-1.10.5/css/dataTables.extra.css" rel="stylesheet" />
+<script src="datatables-bootstrap-1.10.5/js/dataTables.bootstrap.js"></script>
+<link href="font-awesome-6.2.0/css/all.min.css" rel="stylesheet" />
+<link href="font-awesome-6.2.0/css/v4-shims.min.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+<link href="bootstrap-3.4.1/accessibility/css/bootstrap-accessibility.min.css" rel="stylesheet" />
+<script src="bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.4.1/accessibility/js/bootstrap-accessibility.min.js"></script>  <script>var i18n_translations = [{"en":"Change language","fr":"Selectionner la langue","_row":"Selectionner la langue"},{"en":"Questions","fr":"Questions","_row":"Questions"},{"en":"General instructions for the questionnaire","fr":"Consigne générale du questionnaire","_row":"Consigne générale du questionnaire"},{"en":"Questions 1/3","fr":"Questions 1/3","_row":"Questions 1/3"},{"en":"Questions 2/3","fr":"Questions 2/3","_row":"Questions 2/3"},{"en":"Questions 3/3","fr":"Questions 3/3","_row":"Questions 3/3"},{"en":"Human","fr":"Humain","_row":"Humain"},{"en":"Technical","fr":"Technique","_row":"Technique"},{"en":"Isolating","fr":"M'isole","_row":"M'isole"},{"en":"Connective","fr":"Me sociabilise","_row":"Me sociabilise"},{"en":"Pleasant","fr":"Plaisant","_row":"Plaisant"},{"en":"Unpleasant","fr":"Déplaisant","_row":"Déplaisant"},{"en":"Inventive","fr":"Original","_row":"Original"},{"en":"Conventional","fr":"Conventionnel","_row":"Conventionnel"},{"en":"Simple","fr":"Simple","_row":"Simple"},{"en":"Complicated","fr":"Compliqué","_row":"Compliqué"},{"en":"Professional","fr":"Professionnel","_row":"Professionnel"},{"en":"Unprofessional","fr":"Amateur","_row":"Amateur"},{"en":"Ugly","fr":"Laid","_row":"Laid"},{"en":"Attractive","fr":"Beau","_row":"Beau"},{"en":"Practical","fr":"Pratique","_row":"Pratique"},{"en":"Impractical","fr":"Pas Pratique","_row":"Pas Pratique"},{"en":"Likeable","fr":"Agreable","_row":"Agreable"},{"en":"Disagreeable","fr":"Désagréable","_row":"Désagréable"},{"en":"Cumbersome","fr":"Fastidieux","_row":"Fastidieux"},{"en":"Straightforward","fr":"Efficace","_row":"Efficace"},{"en":"Stylish","fr":"De bon goét","_row":"De bon goét"},{"en":"Tacky","fr":"De mauvais goût","_row":"De mauvais goût"},{"en":"Predictable","fr":"Prévisible","_row":"Prévisible"},{"en":"Unpredictable","fr":"Imprévisible","_row":"Imprévisible"},{"en":"Cheap","fr":"Bas de gamme","_row":"Bas de gamme"},{"en":"Premium","fr":"Haut de gamme","_row":"Haut de gamme"},{"en":"Alienating","fr":"M'exclut","_row":"M'exclut"},{"en":"Integrating","fr":"M'intègre","_row":"M'intègre"},{"en":"Brings me closer","fr":"Me rapproche des autres","_row":"Me rapproche des autres"},{"en":"Separates me","fr":"Me sépare des autres","_row":"Me sépare des autres"},{"en":"Unpresentable","fr":"Non présentable","_row":"Non présentable"},{"en":"Presentable","fr":"Présentable","_row":"Présentable"},{"en":"Rejecting","fr":"Rebutant","_row":"Rebutant"},{"en":"Invinting","fr":"Attirant","_row":"Attirant"},{"en":"Unimaginative","fr":"Sans imagination","_row":"Sans imagination"},{"en":"Creative","fr":"Créatif","_row":"Créatif"},{"en":"Good","fr":"Bon","_row":"Bon"},{"en":"Bad","fr":"Mauvais","_row":"Mauvais"},{"en":"Confusing","fr":"Confus","_row":"Confus"},{"en":"Clearly structured","fr":"Clair","_row":"Clair"},{"en":"Repelling","fr":"Repoussant","_row":"Repoussant"},{"en":"Appealing","fr":"Attrayant","_row":"Attrayant"},{"en":"Bold","fr":"Audacieux","_row":"Audacieux"},{"en":"Cautious","fr":"Prudent","_row":"Prudent"},{"en":"Innovative","fr":"Novateur","_row":"Novateur"},{"en":"Conservative","fr":"Conservateur","_row":"Conservateur"},{"en":"Dull","fr":"Ennuyeux","_row":"Ennuyeux"},{"en":"Captivating","fr":"Captivant","_row":"Captivant"},{"en":"Undemanding","fr":"Peu exigeant","_row":"Peu exigeant"},{"en":"Challenging","fr":"Challenging","_row":"Challenging"},{"en":"Motivating","fr":"Motivant","_row":"Motivant"},{"en":"Discouraging","fr":"Décourageant","_row":"Décourageant"},{"en":"Novel","fr":"Nouveau","_row":"Nouveau"},{"en":"Ordinary","fr":"Commun","_row":"Commun"},{"en":"Unruly","fr":"Incontrôlable","_row":"Incontrôlable"},{"en":"Manageable","fr":"Maétrisable","_row":"Maétrisable"},{"en":"Save","fr":"Enregistrer","_row":"Enregistrer"},{"en":"Results","fr":"Résultats","_row":"Résultats"},{"en":"Developed by","fr":"Développé par","_row":"Développé par"},{"en":"Based on work from","fr":"Fondé sur les travaux de","_row":"Fondé sur les travaux de"},{"en":"Raw Data","fr":"Données Brutes","_row":"Données Brutes"},{"en":" This questionnaire is in the form of word pairs to assist you in evaluating the system. Each pair represents contrasts. The scales between the two ends allow you to describe the intensity of the chosen quality. Think only about the word pairs and just try to give a spontaneous answer. You may feel that some words do not describe the system correctly. In this case, make sure you give an answer anyway. Keep in mind that there is no right or wrong answer. Only your opinion counts!","fr":"Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système. Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie. Ne pensez qu'aux paires de mots et essayez simplement de donner une réponse spontanée. Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez-vous de donner tout de même une réponse. Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !","_row":"Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système. Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie. Ne pensez qu'aux paires de mots et essayez simplement de donner une réponse spontanée. Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez-vous de donner tout de même une réponse. Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !"},{"en":"Details of the evaluations for each user","fr":"Details des évaluations pour chaque utilisateur","_row":"Details des évaluations pour chaque utilisateur"},{"en":"Diagrams and Data by Word Pair","fr":"Diagrammes et Données par Paire de Mots","_row":"Diagrammes et Données par Paire de Mots"},{"en":"Charts and Data by Dimensions","fr":"Diagrammes et Données par Sous-echelles","_row":"Diagrammes et Données par Sous-echelles"},{"en":"Results Portfolio","fr":"Portfolio des Résultats","_row":"Portfolio des Résultats"}]</script>
+  <script src="shiny_i18n/shiny-i18n.js"></script>
+  <style>.shinyjs-hide { display: none !important; }</style>
+  <script>Shiny.addCustomMessageHandler('shinyjs-show', function(params) { shinyjs.debugMessage('shinyjs: calling function "show" with parameters:'); shinyjs.debugMessage(params); shinyjs.show(params);});
+Shiny.addCustomMessageHandler('shinyjs-hide', function(params) { shinyjs.debugMessage('shinyjs: calling function "hide" with parameters:'); shinyjs.debugMessage(params); shinyjs.hide(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggle', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggle" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggle(params);});
+Shiny.addCustomMessageHandler('shinyjs-enable', function(params) { shinyjs.debugMessage('shinyjs: calling function "enable" with parameters:'); shinyjs.debugMessage(params); shinyjs.enable(params);});
+Shiny.addCustomMessageHandler('shinyjs-disable', function(params) { shinyjs.debugMessage('shinyjs: calling function "disable" with parameters:'); shinyjs.debugMessage(params); shinyjs.disable(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleState', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleState" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleState(params);});
+Shiny.addCustomMessageHandler('shinyjs-addClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "addClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.addClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-html', function(params) { shinyjs.debugMessage('shinyjs: calling function "html" with parameters:'); shinyjs.debugMessage(params); shinyjs.html(params);});
+Shiny.addCustomMessageHandler('shinyjs-onevent', function(params) { shinyjs.debugMessage('shinyjs: calling function "onevent" with parameters:'); shinyjs.debugMessage(params); shinyjs.onevent(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeEvent', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeEvent" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeEvent(params);});
+Shiny.addCustomMessageHandler('shinyjs-alert', function(params) { shinyjs.debugMessage('shinyjs: calling function "alert" with parameters:'); shinyjs.debugMessage(params); shinyjs.alert(params);});
+Shiny.addCustomMessageHandler('shinyjs-logjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "logjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.logjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-runjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "runjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.runjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-reset', function(params) { shinyjs.debugMessage('shinyjs: calling function "reset" with parameters:'); shinyjs.debugMessage(params); shinyjs.reset(params);});
+Shiny.addCustomMessageHandler('shinyjs-delay', function(params) { shinyjs.debugMessage('shinyjs: calling function "delay" with parameters:'); shinyjs.debugMessage(params); shinyjs.delay(params);});
+Shiny.addCustomMessageHandler('shinyjs-click', function(params) { shinyjs.debugMessage('shinyjs: calling function "click" with parameters:'); shinyjs.debugMessage(params); shinyjs.click(params);});
+Shiny.addCustomMessageHandler('shinyjs-refresh', function(params) { shinyjs.debugMessage('shinyjs: calling function "refresh" with parameters:'); shinyjs.debugMessage(params); shinyjs.refresh(params);});</script>
+  <script src="shinyjs/shinyjs-default-funcs.js"></script>
+  <script>shinyjs.debug = false;</script>
+  <title>AttrakDiff</title>
+  <style>.evalItem{background-color:lavender;border-radius: 10px; margin:10px; padding-top:15px}</style>
+<script src="__assets__/sockjs.min.js"></script>
+<script src="__assets__/shiny-server-client.min.js"></script>
+<script>preShinyInit({reconnect:true,disableProtocols:[]});</script>
+<link rel="stylesheet" type="text/css" href="__assets__/shiny-server.css"/>
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div id="i18n-state" style="visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"></div>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4075" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-4075">
+            <span class="sr-only visually-hidden">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand">AttrakDiff</span>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-collapse-4075">
+          <ul class="nav navbar-nav" data-tabsetid="7404">
+            <li class="active">
+              <a href="#tab-7404-1" data-toggle="tab" data-bs-toggle="tab" data-value="Questions">Questions</a>
+            </li>
+            <li>
+              <a href="#tab-7404-2" data-toggle="tab" data-bs-toggle="tab" data-value="&lt;span class=&quot;i18n&quot; data-key=&quot;Resultats&quot;&gt;Resultats&lt;/span&gt;">
+                <span class="i18n" data-key="Resultats">Resultats</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="tab-content" data-tabsetid="7404">
+        <div class="tab-pane active" data-value="Questions" id="tab-7404-1">
+          <div style="float: right;">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="selected_language-label" for="selected_language">
+                <span class="i18n" data-key="Selectionner la langue">Selectionner la langue</span>
+              </label>
+              <div>
+                <select id="selected_language"><option value="fr" selected>fr</option>
+<option value="en">en</option></select>
+                <script type="application/json" data-for="selected_language" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+              </div>
+            </div>
+          </div>
+          <h2>
+            <span class="i18n" data-key="Consigne générale du questionnaire">Consigne générale du questionnaire</span>
+          </h2>
+          <p>
+            <span class="i18n" data-key="Dans le cadre d’un projet sur l’expérience utilisateur, nous souhaiterions évaluer vos impressions sur la plateforme. Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système. Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie. Ne pensez qu&#39;aux paires de mots et essayez simplement de donner une réponse spontanée. Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez-vous de donner tout de même une réponse. Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !">Dans le cadre d’un projet sur l’expérience utilisateur, nous souhaiterions évaluer vos impressions sur la plateforme. Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système. Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie. Ne pensez qu'aux paires de mots et essayez simplement de donner une réponse spontanée. Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez-vous de donner tout de même une réponse. Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !</span>
+          </p>
+          <h1>
+            <span class="i18n" data-key="Questions 1/3">Questions 1/3</span>
+          </h1>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Humain">Humain</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP1" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP1-label">
+                <label class="control-label shiny-label-null" for="QP1" id="QP1-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP1" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Technique">Technique</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="M&#39;isole">M'isole</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI1" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI1-label">
+                <label class="control-label shiny-label-null" for="QHI1" id="QHI1-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI1" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Me sociabilise">Me sociabilise</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Plaisant">Plaisant</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT1" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT1-label">
+                <label class="control-label shiny-label-null" for="ATT1" id="ATT1-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT1" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Déplaisant">Déplaisant</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Original">Original</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS1" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS1-label">
+                <label class="control-label shiny-label-null" for="QHS1" id="QHS1-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS1" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Conventionnel">Conventionnel</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Simple">Simple</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP2" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP2-label">
+                <label class="control-label shiny-label-null" for="QP2" id="QP2-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP2" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Compliqué">Compliqué</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Professionnel">Professionnel</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI2" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI2-label">
+                <label class="control-label shiny-label-null" for="QHI2" id="QHI2-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI2" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Amateur">Amateur</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Laid">Laid</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT2" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT2-label">
+                <label class="control-label shiny-label-null" for="ATT2" id="ATT2-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT2" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Beau">Beau</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Pratique">Pratique</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP3" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP3-label">
+                <label class="control-label shiny-label-null" for="QP3" id="QP3-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP3" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Pas Pratique">Pas Pratique</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Agreable">Agreable</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT3" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT3-label">
+                <label class="control-label shiny-label-null" for="ATT3" id="ATT3-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT3" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Désagréable">Désagréable</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Fastidieux">Fastidieux</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP4" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP4-label">
+                <label class="control-label shiny-label-null" for="QP4" id="QP4-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP4" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Efficace">Efficace</span>
+            </div>
+          </div>
+          <h1>
+            <span class="i18n" data-key="Questions 2/3">Questions 2/3</span>
+          </h1>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="De bon goût">De bon goût</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI3" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI3-label">
+                <label class="control-label shiny-label-null" for="QHI3" id="QHI3-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI3" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="De mauvais goût">De mauvais goût</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Prévisible">Prévisible</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP5" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP5-label">
+                <label class="control-label shiny-label-null" for="QP5" id="QP5-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP5" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Imprévisible">Imprévisible</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Bas de Gamme">Bas de Gamme</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI4" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI4-label">
+                <label class="control-label shiny-label-null" for="QHI4" id="QHI4-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI4" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Haut de gamme">Haut de gamme</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="M&#39;exclut">M'exclut</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI5" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI5-label">
+                <label class="control-label shiny-label-null" for="QHI5" id="QHI5-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI5" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="M&#39;intègre">M'intègre</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Me rapproche des autres">Me rapproche des autres</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI6" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI6-label">
+                <label class="control-label shiny-label-null" for="QHI6" id="QHI6-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI6" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Me sépare des autres">Me sépare des autres</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Non présentable">Non présentable</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHI7" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHI7-label">
+                <label class="control-label shiny-label-null" for="QHI7" id="QHI7-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHI7" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Présentable">Présentable</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Rebutant">Rebutant</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT4" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT4-label">
+                <label class="control-label shiny-label-null" for="ATT4" id="ATT4-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT4" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Attirant">Attirant</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Sans imagination">Sans imagination</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS2" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS2-label">
+                <label class="control-label shiny-label-null" for="QHS2" id="QHS2-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS2" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Créatif">Créatif</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Bon">Bon</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT5" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT5-label">
+                <label class="control-label shiny-label-null" for="ATT5" id="ATT5-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT5" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Mauvais">Mauvais</span>
+            </div>
+          </div>
+          <h1>
+            <span class="i18n" data-key="Questions 3/3">Questions 3/3</span>
+          </h1>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Confus">Confus</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP6" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP6-label">
+                <label class="control-label shiny-label-null" for="QP6" id="QP6-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP6" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Clair">Clair</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Repoussant">Repoussant</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT6" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT6-label">
+                <label class="control-label shiny-label-null" for="ATT6" id="ATT6-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT6" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Attrayant">Attrayant</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Audaciaux">Audaciaux</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS3" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS3-label">
+                <label class="control-label shiny-label-null" for="QHS3" id="QHS3-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS3" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Prudent">Prudent</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Novateur">Novateur</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS4" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS4-label">
+                <label class="control-label shiny-label-null" for="QHS4" id="QHS4-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS4" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Conservateur">Conservateur</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Ennuyeux">Ennuyeux</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS5" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS5-label">
+                <label class="control-label shiny-label-null" for="QHS5" id="QHS5-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS5" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Captivant">Captivant</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Peu exigeant">Peu exigeant</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS6" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS6-label">
+                <label class="control-label shiny-label-null" for="QHS6" id="QHS6-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS6" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Challenging">Challenging</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Motivant">Motivant</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="ATT7" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="ATT7-label">
+                <label class="control-label shiny-label-null" for="ATT7" id="ATT7-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ATT7" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Décourageant">Décourageant</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Nouveau">Nouveau</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QHS7" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QHS7-label">
+                <label class="control-label shiny-label-null" for="QHS7" id="QHS7-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QHS7" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Commun">Commun</span>
+            </div>
+          </div>
+          <div class="row evalItem">
+            <div class="col-sm-3" align="Right">
+              <span class="i18n" data-key="Incontrôlable">Incontrôlable</span>
+            </div>
+            <div class="col-sm-6" align="Center">
+              <div id="QP7" class="form-group shiny-input-radiogroup shiny-input-container shiny-input-container-inline" role="radiogroup" aria-labelledby="QP7-label">
+                <label class="control-label shiny-label-null" for="QP7" id="QP7-label"></label>
+                <div class="shiny-options-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="-3"/>
+                    <span>-3</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="-2"/>
+                    <span>-2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="-1"/>
+                    <span>-1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="0" checked="checked"/>
+                    <span>0</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="1"/>
+                    <span>1</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="2"/>
+                    <span>2</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="QP7" value="3"/>
+                    <span>3</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" align="Left">
+              <span class="i18n" data-key="Maîtrisable">Maîtrisable</span>
+            </div>
+          </div>
+          <pre class="shiny-text-output noplaceholder" id="saved"></pre>
+          <div class="col-sm-12" align="center">
+            <button id="save" type="button" class="btn btn-default action-button" style="color: #fff; background-color: #337ab7; border-color: #2e6da4; margin-bottom: 40 px">
+              <span class="i18n" data-key="Enregistrer">Enregistrer</span>
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane" data-value="&lt;span class=&quot;i18n&quot; data-key=&quot;Resultats&quot;&gt;Resultats&lt;/span&gt;" id="tab-7404-2">
+          <div style="float: right;">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="selected_language2-label" for="selected_language2">
+                <span class="i18n" data-key="Selectionner la langue">Selectionner la langue</span>
+              </label>
+              <div>
+                <select id="selected_language2"><option value="fr" selected>fr</option>
+<option value="en">en</option></select>
+                <script type="application/json" data-for="selected_language2" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+              </div>
+            </div>
+          </div>
+          <h1>
+            <span class="i18n" data-key="Données Brutes">Données Brutes</span>
+          </h1>
+          <p>Details des évaluations pour chaque utilisateur.</p>
+          <div class="tabbable">
+            <ul class="nav nav-tabs" data-tabsetid="9638">
+              <li class="active">
+                <a href="#tab-9638-1" data-toggle="tab" data-bs-toggle="tab" data-value="Table">Table</a>
+              </li>
+              <li>
+                <a href="#tab-9638-2" data-toggle="tab" data-bs-toggle="tab" data-value="Download">Download</a>
+              </li>
+            </ul>
+            <div class="tab-content" data-tabsetid="9638">
+              <div class="tab-pane active" data-value="Table" id="tab-9638-1">
+                <div id="rawData" class="shiny-datatable-output"></div>
+              </div>
+              <div class="tab-pane" data-value="Download" id="tab-9638-2">
+                <p>Télécharger l'ensemble des données collectées pour chaque individu.</p>
+                <a id="downloadRawData" class="btn btn-default shiny-download-link " href="" target="_blank" download>
+                  <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <h1>Diagrammes et Données par Paire de Mots</h1>
+          <p>Les valeurs moyennes pour chaque paire de mots est calculé à partir des évaluations des utilisateurs. Les données sont représentées sur un diagramme centré en 0 pour distinguer très rapidement quels aspects sont perçus comme négatifs et quels aspects sont perçus comme positifs.</p>
+          <p>Les valeurs extrêmes (entre -2 et -3 ou à l’inverse entre +2 et +3) sont particulièrement intéressantes. Elles montrent quelles dimensions sont critiques ou au contraire particulièrement posi5ves, et appellent à des actions d’amélioration sur ces aspects.</p>
+          <div class="tabbable">
+            <ul class="nav nav-tabs" data-tabsetid="1333">
+              <li class="active">
+                <a href="#tab-1333-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+              </li>
+              <li>
+                <a href="#tab-1333-2" data-toggle="tab" data-bs-toggle="tab" data-value="Table">Table</a>
+              </li>
+              <li>
+                <a href="#tab-1333-3" data-toggle="tab" data-bs-toggle="tab" data-value="Download">Download</a>
+              </li>
+            </ul>
+            <div class="tab-content" data-tabsetid="1333">
+              <div class="tab-pane active" data-value="Plot" id="tab-1333-1">
+                <div id="diagDetailMoy2" class="shiny-plot-output" style="width:100%;height:400px;"></div>
+              </div>
+              <div class="tab-pane" data-value="Table" id="tab-1333-2">
+                <div id="motsMoy" class="shiny-datatable-output"></div>
+              </div>
+              <div class="tab-pane" data-value="Download" id="tab-1333-3">
+                <p>Télécharger la moyenne des résultats pour chaque item.</p>
+                <a id="downloadData" class="btn btn-default shiny-download-link " href="" target="_blank" download>
+                  <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <h1>Diagrammes et Données par Sous-echelles</h1>
+          <p>AttrakDiff structure les paires de mots en sous-échelle. La moyenne des paires de mots par sous-échelle permet d'avoir une vision plus succinte des aspects positifs et négatifs de l'éxperience utilisateur étudié.</p>
+          <p>Les valeurs proches de 0 (entre 0 et 1) sont dites standard, c'est-à-dire que le système remplit son objectif sans avoir d’impact négatif. Les valeurs en dehors de cette zone neutre sont à considérer comme des points positifs (de 1 à 3) ou négatifs (de -1 à -3) de votre système.</p>
+          <div class="tabbable">
+            <ul class="nav nav-tabs" data-tabsetid="2005">
+              <li class="active">
+                <a href="#tab-2005-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+              </li>
+              <li>
+                <a href="#tab-2005-2" data-toggle="tab" data-bs-toggle="tab" data-value="Table">Table</a>
+              </li>
+              <li>
+                <a href="#tab-2005-3" data-toggle="tab" data-bs-toggle="tab" data-value="Download">Download</a>
+              </li>
+            </ul>
+            <div class="tab-content" data-tabsetid="2005">
+              <div class="tab-pane active" data-value="Plot" id="tab-2005-1">
+                <div id="histDiagValMoy" class="shiny-plot-output" style="width:100%;height:400px;"></div>
+              </div>
+              <div class="tab-pane" data-value="Table" id="tab-2005-2">
+                <div id="valMoy" class="shiny-datatable-output"></div>
+              </div>
+              <div class="tab-pane" data-value="Download" id="tab-2005-3">
+                <p>Télécharger la moyenne des résultats pour chaque sous-échelle.</p>
+                <a id="downloadDataSousEch" class="btn btn-default shiny-download-link " href="" target="_blank" download>
+                  <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <h1>Portfolio des Résultats</h1>
+          <p>Une oritention / "personalité" du système peut être definit en croisant les évaluations des qualités hédoniques et des qualités paragamtiques.</p>
+          <div class="tabbable">
+            <ul class="nav nav-tabs" data-tabsetid="9226">
+              <li class="active">
+                <a href="#tab-9226-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+              </li>
+            </ul>
+            <div class="tab-content" data-tabsetid="9226">
+              <div class="tab-pane active" data-value="Plot" id="tab-9226-1">
+                <div id="portfolio" class="shiny-plot-output" style="width:100%;height:400px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <p style="text-align:center">
+      <em>
+        <span class="i18n" data-key="Développé par">Développé par</span>
+      </em>
+      <br>Alex Gabriel - Université de Lorraine - ERPI</br>
+    </p>
+    <p style="text-align:center">
+      <em>
+        <span class="i18n" data-key="Fondé sur les travaux de">Fondé sur les travaux de</span>
+      </em>
+      <br>Lallemand, C., Koenig, V., Gronier, G., &amp; Martin, R. (2015). Création et validation d’une version française du questionnaire AttrakDiff pour l’évaluation de l’expérience utilisateur des systèmes interactifs, Revue Européenne de Psychologie Appliquée. doi:10.1016/j.erap.2015.08.002</br>
+    </p>
+    <style type="text/css">body {padding-top: 70px;}</style>
+  </div>
+</body>
+</html>
