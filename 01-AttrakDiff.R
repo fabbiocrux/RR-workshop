@@ -3,7 +3,7 @@
 
 # CONTENTS
 #   1. Reading the Excel/CSV Data
-#   2. Treating Excel Data
+#   2. Treating Excel/CSV Data
 #   3. Making the Tables and the Graphics
 #   4. Introduce the results in Rmarkdown table.
 
@@ -70,6 +70,8 @@ data <-
             TRUE ~ Answers
          )
       )
+
+
 
 
 View(data)
