@@ -188,9 +188,7 @@ Graph_II <-
 
 
 #  5. Graphic III ----
-## 4.1 Grouping the mean values and the error
-
-## 4. Graphic II ----
+## Making the graphic per Variable Item
 
 Table_III <- 
    data %>% 
@@ -209,16 +207,17 @@ Graph_III <-
    # scale_x_discrete(name="Items", 
    #                  labels= c())+
    coord_flip() +
-   annotate("rect", xmin=c(1,7,11,15, 19), xmax=c(6,10,14,18, 22),
-            ymin=rep(-3,5), ymax=rep(3, 5),
-            alpha = .1 , fill = c("blue", "red", "grey","green", "orange")) +
+   annotate("rect", xmin=c(1,7,11,15, 19, 23), xmax=c(6,10,14,18, 22, 26),
+            ymin=rep(-3,6), ymax=rep(3, 6),
+            alpha = .1 , fill = c("blue", "red", "grey","green", "orange", "yellow")) +
    ggplot2::annotate("text",
-                     y = c(2, 2, 2, 2, 2),
-                     x = c(4, 8, 12, 26, 28),
+                     y = c(2, 2, 2, 2, 2, 2),
+                     x = c(4, 8, 12, 16, 20, 23),
                      label = c("Attraction",
                                "Contrôlabilité",
                                "Efficacité",
                                "Originalité",
+                               "Compréhensibilité",
                                "Stimulation"
                                ),
                      family = "Palatino", fontface = 3, size=3) +
@@ -226,7 +225,8 @@ Graph_III <-
    labs(x = "",
         y = "Level ",
         title = "AtrakDiff Profile",
-        subtitle = paste("Total of answers:" , total ) ) +
+        subtitle = paste("Total of answers:" , total ),
+        caption = "Group X") +
    theme(
       legend.position = "right",
       panel.border = element_blank(),
@@ -235,6 +235,6 @@ Graph_III <-
    )
 
 # Saving the File
-#ggsave("Figures/AttrakDiff-2.jpg", width = 5, height = 7, dpi="print" )
+#ggsave("Figures/UEQ-3.jpg", width = 10, height = 5, dpi="print" )
 
 
