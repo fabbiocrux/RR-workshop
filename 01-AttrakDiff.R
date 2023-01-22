@@ -53,6 +53,20 @@ data <-
          case_when(
             Variables == "QP1"  ~ Answers*(-1),
             #Variables == "QP2"  ~ as.numeric(Answers*-1),
+            #Variables == "QP3"  ~ as.numeric(Answers*-1),
+            #Variables == "QP5"  ~ as.numeric(Answers*-1),
+            #Variables == "ATT1"  ~ as.numeric(Answers*-1),
+            #Variables == "ATT3"  ~ as.numeric(Answers*-1),
+            #Variables == "ATT5"  ~ as.numeric(Answers*-1),
+            #Variables == "ATT7"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS1"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS3"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS4"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS7"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS1"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS3"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS4"  ~ as.numeric(Answers*-1),
+            #Variables == "QHS7"  ~ as.numeric(Answers*-1),
             TRUE ~ Answers
          )
       )
@@ -60,7 +74,10 @@ data <-
 
 View(data)
 ## Inversing the Scale
-toInvert <- c("QP1", "QP2", "QP3", "QP5", "ATT1", "ATT3", "ATT5", "ATT7", "QHS1", "QHS3", "QHS4", "QHS7", "QHI2", "QHI3", "QHI6")
+toInvert <- c("QP1", "QP2", "QP3", "QP5", 
+              "ATT1", "ATT3", "ATT5", "ATT7", 
+              "QHS1", "QHS3", "QHS4", "QHS7", 
+              "QHI2", "QHI3", "QHI6")
 
 
 ### Changing the sign of the answers : Approach Explicit
@@ -92,7 +109,7 @@ data <-
 
 
 
-#  3. Graphic II ----
+#  3. Graphic I ----
 ## 3.1 Calculating the mean values and the error
 Table_I <-
    data %>%

@@ -3,7 +3,7 @@
 
 # CONTENTS
 #   1. Reading the Excel/CSV Data
-#   2. Treating Excel Data
+#   2. Treating CSV Data
 #   3. Making the Tables and the Graphics
 #   4. Introduce the results in Rmarkdown table.
 
@@ -22,6 +22,7 @@ library(readxl)  # Read a Excel File
 #  1. Reading the CSV Data ----
 UEQ <- read_csv('data/2023/UEQ/F.csv')
 
+
 ## Quantity of participants
 total <- nrow(UEQ)
 
@@ -29,14 +30,98 @@ total <- nrow(UEQ)
 names(UEQ)
 
 
+#  2. Treating CSV Data ----
+## 2.1 Change the Participants ----
+UEQ <- UEQ %>% mutate( Participant = paste(LETTERS[1 : total])) # Approach 1
+UEQ$Participant <- paste(LETTERS[1 : total]) # Approach 2
+
+names(UEQ)
+
+
+## Pivot_longer() to arrange each variable
+data <-
+   UEQ %>% pivot_longer(cols = c(EFF1 : ATT6),
+                               names_to = "Variables",
+                               values_to = "Answers")
+
+
+##. 2.2 Changing the scale of the certains answers ----
+### Reading the Excel for the Parameters  
+onglets <- excel_sheets("data/Parameters.xlsx") # Identify the onglets
+
+# Reading all table
+Parameters_UEQ <- 
+   read_excel(path = "data/Parameters.xlsx", sheet = onglets[2] )
+
+
+### Inversing the Scale
+toInvert <- 
+   c("EFF1", "EFF4",
+     "PERS2", "PERS4",
+     "DEP3", "DEP4",
+     "STIM1", "STIM4",
+     "NOV1",  "NOV2", 
+     "ATT2", "ATT5", "ATT6")
+
+toInvert <- Parameters_UEQ %>% filter(Inversion == "Yes") %>% pull(Variables)
+
+### Changing the sign of the answers : Approach Explicit
+data <-
+   data %>% mutate(
+      Final_value =
+         case_when(
+            Variables %in% toInvert ~ as.numeric(Answers)*(-1),
+            TRUE ~ Answers
+         )
+   )
 
 
 
 
+## 2.3 Groups of the Dimmensions ----
+data <-
+   data %>% left_join(Parameters_UEQ, by = "Variables")
 
 
 
 
+#  3. Graphic I ----
+## 3.1 Calculating the mean values and the error
+Table_I <-
+   data %>%
+   group_by(Scale) %>%
+   summarise(Moyenne = mean(Final_value),
+             Std = sd(Final_value),
+             Se = Std / sqrt(length(Final_value)))
+
+
+Graph_I <-
+   Table_I %>%
+   ggplot() +
+   aes(x= Scale, y=Moyenne) +
+   geom_bar(stat = "identity") +
+   geom_errorbar( aes(x=Scale, 
+                      ymin = Moyenne - Se,
+                      ymax = Moyenne + Se ),
+                  width=0.1, colour="orange", alpha=0.9, size=0.5) +
+   geom_point() +
+   coord_flip() +
+   scale_x_discrete( name = "UEQ Results") +
+   scale_y_continuous(limits = c(-3,3), breaks = c(-3:3)) +
+   annotate("rect", ymin=c(-0.8), ymax=c(0.8),
+            xmin=c(0), xmax=c(7),
+            alpha = .1 , fill = c("orange")) +
+   ggplot2::annotate("text",
+                     y = c(2),
+                     x = c(4),
+                     label = c("Zone Neutre"),
+                     family = "Palatino", fontface = 3, size=3) +
+   labs(x = "",
+        y = "Level ",
+        title = "UEQ Profile for XXX",
+        subtitle = paste("Total of answers:" , total)
+   ) +
+   theme_minimal(base_size = 12, base_family = "Palatino")
 
 
 
