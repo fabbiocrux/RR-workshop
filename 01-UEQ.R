@@ -22,7 +22,6 @@ library(readxl)  # Read a Excel File
 #  1. Reading the CSV Data ----
 UEQ <- read_csv('data/2023/UEQ/F.csv')
 
-
 ## Quantity of participants
 total <- nrow(UEQ)
 
@@ -123,12 +122,119 @@ Graph_I <-
    ) +
    theme_minimal(base_size = 12, base_family = "Palatino")
 
+# Saving the File
+#ggsave("Figures/UEQ-1.jpg", width = 10, height = 5, dpi="print" )
 
 
 
+#  4. Graphic II ----
+## 4.1 Grouping the mean values and the error
+
+Parameters_UEQ$Scale %>% as.factor() %>%  levels()
+   
+data <-
+   data %>% mutate(
+      Global_scale =
+         case_when(
+            str_detect(Scale, "Compréhensibilité") ~ "Qualité Pragmatique (QP)",
+            str_detect(Scale, "Efficacité") ~ "Qualité Pragmatique (QP)",
+            str_detect(Scale, "Contrôlabilité") ~ "Qualité Pragmatique (QP)",
+            
+            str_detect(Scale, "Originalité") ~ "Qualité Hédonique",
+            str_detect(Scale, "Stimulation") ~ "Qualité Hédonique",
+            
+            str_detect(Scale, "Attraction") ~ "Attraction",
+            TRUE ~ "ATTENTION"
+         ))
 
 
+Table_II <-
+   data %>%
+   group_by(Global_scale) %>%
+   summarise(Moyenne = mean(Final_value),
+             Std = sd(Final_value),
+             Se = Std / sqrt(length(Final_value)))
+
+Graph_II <-
+   Table_II %>%
+   ggplot() +
+   aes(x= Global_scale, y=Moyenne) +
+   geom_bar(stat = "identity") +
+   geom_errorbar( aes(x=Global_scale, 
+                      ymin = Moyenne - Se,
+                      ymax = Moyenne + Se ),
+                  width=0.1, colour="orange", alpha=0.9, size=0.5) +
+   geom_point() +
+   #coord_flip() +
+   scale_x_discrete( name = "UEQ Results") +
+   scale_y_continuous(limits = c(-3,3), breaks = c(-3:3)) +
+   # annotate("rect", ymin=c(-0.8), ymax=c(0.8),
+   #          xmin=c(0), xmax=c(7),
+   #          alpha = .1 , fill = c("orange")) +
+   # ggplot2::annotate("text",
+   #                   y = c(2),
+   #                   x = c(4),
+   #                   label = c("Zone Neutre"),
+   #                   family = "Palatino", fontface = 3, size=3) +
+   labs(x = "",
+        y = "Level ",
+        title = "UEQ Profile for XXX",
+        subtitle = paste("Total of answers:" , total)
+   ) +
+   theme_minimal(base_size = 12, base_family = "Palatino")
+
+# Saving the File
+#ggsave("Figures/UEQ-2.jpg", width = 10, height = 5, dpi="print" )
 
 
+#  5. Graphic III ----
+## 4.1 Grouping the mean values and the error
+
+## 4. Graphic II ----
+
+Table_III <- 
+   data %>% 
+   group_by( Variables ) %>%
+   summarise( Moyenne = mean(Final_value))
+
+Parameters_UEQ$Scale %>% as.factor() %>% levels()
+
+Graph_III <-
+   Table_III %>%
+   ggplot() + 
+   aes(x = Variables, y=Moyenne, group =1) + 
+   geom_line( color="grey" ) +
+   geom_point() +
+   scale_y_continuous(name="Moyenne", breaks=seq(-3,3,1), limits=c(-3, 3))+
+   # scale_x_discrete(name="Items", 
+   #                  labels= c())+
+   coord_flip() +
+   annotate("rect", xmin=c(1,7,11,15, 19), xmax=c(6,10,14,18, 22),
+            ymin=rep(-3,5), ymax=rep(3, 5),
+            alpha = .1 , fill = c("blue", "red", "grey","green", "orange")) +
+   ggplot2::annotate("text",
+                     y = c(2, 2, 2, 2, 2),
+                     x = c(4, 8, 12, 26, 28),
+                     label = c("Attraction",
+                               "Contrôlabilité",
+                               "Efficacité",
+                               "Originalité",
+                               "Stimulation"
+                               ),
+                     family = "Palatino", fontface = 3, size=3) +
+   theme_minimal(base_size = 12, base_family = "Palatino") +
+   labs(x = "",
+        y = "Level ",
+        title = "AtrakDiff Profile",
+        subtitle = paste("Total of answers:" , total ) ) +
+   theme(
+      legend.position = "right",
+      panel.border = element_blank(),
+      panel.spacing = unit(0.1, "lines"),
+      strip.text.x = element_text(size = 18, family = "Palatino")
+   )
+
+# Saving the File
+#ggsave("Figures/AttrakDiff-2.jpg", width = 5, height = 7, dpi="print" )
 
 
