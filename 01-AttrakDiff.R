@@ -20,7 +20,12 @@ library(readxl)  # Read a Excel File
 
 
 #  1. Reading the CSV Data ----
-Attrakdiff <- read_csv('data/2023/Attrakdiff/A.csv')
+Attrakdiff <- read_csv('Groupe-C.csv')
+
+
+# delete Test
+
+Attrakdiff <- Attrakdiff[-c(2,3), ]
 
 ## Quantity of participants
 total <- nrow(Attrakdiff)
@@ -119,7 +124,7 @@ Table_I <-
    summarise(Moyenne = mean(Final_value),
              Std = sd(Final_value),
              Se = Std / sqrt(length(Final_value)))
-
+Table_I
 # More Info: # https://www.r-graph-gallery.com/4-barplot-with-error-bar.html
 
 Graph_I <-
@@ -144,7 +149,7 @@ Graph_I <-
 
 
 # Saving the File
-#ggsave("Figures/AttrakDiff-1.jpg", width = 10, height = 5, dpi="print" )
+#ggsave("Figures/AttrakDiff-GroupeC.jpg", width = 10, height = 5, dpi="print" )
 
 
 ## 4. Graphic II ----
@@ -216,7 +221,7 @@ Graph_II <-
    )
 
 # Saving the File
-#ggsave("Figures/AttrakDiff-2.jpg", width = 5, height = 7, dpi="print" )
+#ggsave("Figures/AttrakDiff-2-GroupeC.jpg", width = 5, height = 7, dpi="print" )
 
 
 
@@ -271,6 +276,10 @@ Graph_III <-
         y = "Qualité Hedonique ") +
    theme_minimal(base_size = 10, base_family = "Palatino")
 
+
+#ggsave("Figures/AttrakDiff-2-Groupe-C.jpg", width = 5, height = 7, dpi="print" )
+
+
 # Total of the Results ----
 Results <- list(Table_1 = Table_I, 
                 Table_2 = Table_II, 
@@ -303,4 +312,29 @@ names(data)
 
 
 
+
+# Libraries
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+
+# create a dataset
+data <- data.frame(
+   name=c( rep("A",500), rep("B",500), rep("B",500), rep("C",20), rep('D', 100)  ),
+   value=c( rnorm(500, 10, 5), rnorm(500, 13, 1), rnorm(500, 18, 1), rnorm(20, 25, 4), rnorm(100, 12, 1) )
+)
+
+# Plot
+data %>%
+   ggplot( aes(x=name, y=value, fill=name)) +
+   geom_boxplot() +
+   scale_fill_viridis(discrete = TRUE, alpha=0.6) +
+   geom_jitter(color="black", size=0.4, alpha=0.9) +
+   theme_ipsum() +
+   theme(
+      legend.position="none",
+      plot.title = element_text(size=11)
+   ) +
+   ggtitle("A boxplot with jitter") +
+   xlab("")
 
